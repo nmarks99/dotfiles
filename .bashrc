@@ -134,6 +134,7 @@ alias start='xdg-open'
 alias vim='nvim'
 alias vi='nvim'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias openrocket='~/local/OpenRocket-15.03.AppImage'
 
 # Neovim stuff. Also as seen above, vi and vim alias to nvim.
 export EDITOR='nvim'
