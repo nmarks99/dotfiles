@@ -127,16 +127,7 @@ if [ "$TERM" != "linux" ]; then
     source ~/local/pureline/pureline ~/.config/pureline/.pureline.conf
 fi
 
-# custom aliases
-alias obsidian='~/local/Obsidian-0.13.19.AppImage'
-alias spotd='spotifyd --device-name "yoga"'
-alias start='xdg-open'
-alias vim='nvim'
-alias vi='nvim'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-alias openrocket='~/local/OpenRocket-15.03.AppImage'
-
-# Neovim stuff. Also as seen above, vi and vim alias to nvim.
+# Neovim stuff. vi and vim are aliased to nvim in .bash_aliases 
 export EDITOR='nvim'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
