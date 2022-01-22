@@ -135,3 +135,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+# Set wal theme with dune wallpaper
+# wal -i ~/Pictures/wallpaper/dune1.jpg
