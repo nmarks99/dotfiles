@@ -137,7 +137,7 @@ export NVM_DIR="$HOME/.nvm"
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
 # Set wal theme with dune wallpaper
-# wal -i ~/Pictures/wallpaper/dune1.jpg
+#wal -i ~/Pictures/wallpaper/dune1.jpg
 
 # Add path to MiKTeX binaries
 export PATH=$PATH:~/bin/MiKTeX
