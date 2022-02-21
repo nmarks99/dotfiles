@@ -141,3 +141,8 @@ LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
 # Add path to MiKTeX binaries
 export PATH=$PATH:~/bin/MiKTeX
+export PATH="$PATH:$HOME/.spicetify"
+
+# spicetify 
+export SPICETIFY_INSTALL="/home/nick/.spicetify"  
+export PATH="$SPICETIFY_INSTALL:$PATH"
