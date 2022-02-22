@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Set super(Windows) key to be alt+R. In settings this is mapped to rofi
+ksuperkey -e 'Super_L=Alt_L|R'
+~/.config/polybar/launch.sh --colorblocks
+
+
