@@ -134,14 +134,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set font colors for directories displayed with ls
-LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=0;31:' ; export LS_COLORS
 
 # Set wal theme with dune wallpaper
 #wal -i ~/Pictures/wallpaper/dune1.jpg
 
 # Add path to MiKTeX binaries
-export PATH=$PATH:~/bin/MiKTeX
-export PATH="$PATH:$HOME/.spicetify"
+export PATH=$PATH:/usr/local/bin/MiKTeX
 
 # spicetify 
 export SPICETIFY_INSTALL="/home/nick/.spicetify"  
