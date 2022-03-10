@@ -145,3 +145,12 @@ export PATH=$PATH:/usr/local/bin/MiKTeX
 # spicetify 
 export SPICETIFY_INSTALL="/home/nick/.spicetify"  
 export PATH="$SPICETIFY_INSTALL:$PATH"
+
+# go-lang 
+export PATH=$PATH:/usr/local/go/bin
+
+# tstock 
+export ALPHAVANTAGE_API_KEY=OXL1MEBVUT2CRCS5
+
+# MATLAB GTK module issue
+export GTK_PATH=/usr/lib/x86_64-linux-gnu/gtk-2.0
