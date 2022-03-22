@@ -37,7 +37,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     
     " code completion and linting
     Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-    Plug 'w0rp/ale'
+    " Plug 'w0rp/ale'
     Plug 'sheerun/vim-polyglot' 
 
 call plug#end()
@@ -129,13 +129,20 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \}
 
 
+
+
+
+
+
 " ALE (Asynchronous Lint Engine)
-let g:ale_fixers = {
- \ 'javascript': ['eslint']
- \ }
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+ " \ 'javascript': ['eslint']
+ " \ }
+" let g:ale_sign_error = '❌'
+" let g:ale_sign_warning = '⚠️'
+" let g:ale_fix_on_save = 1
+
+
 " COC
 " " COC extension
 let g:coc_user_config = {}
