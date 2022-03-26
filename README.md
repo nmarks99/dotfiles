@@ -38,7 +38,6 @@ Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on
 - [rofi](https://github.com/davatorium/rofi): app launcher
 - [spicetify](https://github.com/spicetify/spicetify-cli): customize spotify client
 - [Pywal](https://github.com/dylanaraps/pywal): wallpaper/theme setter
-- map thingy (world map in terminal)
 - [figlet](https://github.com/cmatsuoka/figlet): ASCII text banners in terminal
 
 
