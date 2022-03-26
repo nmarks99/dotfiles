@@ -8,8 +8,7 @@
 - Search for `mousewheel.default.delta_multiplier_y` and decrease it
    
 ### DNS
-Apparently Google DNS server is faster, so switch to that
-
+Apparently Google DNS server is faster: [https://developers.google.com/speed/public-dns](https://developers.google.com/speed/public-dns)
 ### Make audio better
 Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on-linux-6f16f3fe7e1f](https://medium.com/@gamunu/enable-high-quality-audio-on-linux-6f16f3fe7e1f)
 
