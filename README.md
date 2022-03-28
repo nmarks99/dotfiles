@@ -18,8 +18,8 @@ Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on
 - [tstock](https://github.com/Gbox4/tstock): stock charts in terminal
 - [bitwise](https://github.com/mellowcandle/bitwise): bitwise calculations and conversions
 - preload: quickstart apps with RAM
-- TLT: (battery saver)
-- ksuperkey: remap windows key
+- [TLP](https://linrunner.de/tlp/installation/ubuntu.html): battery saver
+- [ksuperkey](https://github.com/hanschen/ksuperkey): remap windows key
 - [kitty](https://github.com/kovidgoyal/kitty): terminal emulator
 - [spotifytui](https://github.com/Rigellute/spotify-tui): spotify player in terminal
 - [spotifyd](https://github.com/Spotifyd/spotifyd): spotify client as a unix daemon
@@ -27,7 +27,7 @@ Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on
 - [neofetch](https://github.com/dylanaraps/neofetch): display system info
 - [onefetch](https://github.com/o2sh/onefetch): display github repo info
 - [bottom](https://github.com/ClementTsang/bottom): display cpu stats etc.
-- cowsay: print messages said by a cow
+- [cowsay](https://github.com/piuccio/cowsay): print messages said by a cow
 - [cmatrix](https://github.com/abishekvashok/cmatrix): display matrix animation
 - [onedrive](https://github.com/abraunegg/onedrive): cli OneDrive client
 - [polybar](https://github.com/polybar/polybar): highly customizable top status bar
