@@ -13,6 +13,10 @@ Apparently Google DNS server is faster: [https://developers.google.com/speed/pub
 Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on-linux-6f16f3fe7e1f](https://medium.com/@gamunu/enable-high-quality-audio-on-linux-6f16f3fe7e1f)
 
 
+## VirtualBox with UEFI Secure Boot
+This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-modules-vboxdrv-vboxnetflt-vboxnetadp-vboxpci-centos-8) is helpful to sign the vbox modules.
+
+
 ## Programs
 
 - [tstock](https://github.com/Gbox4/tstock): stock charts in terminal
