@@ -134,7 +134,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set font colors for directories displayed with ls
-LS_COLORS=$LS_COLORS:'di=0;31:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=0;34:' ; export LS_COLORS
 
 # Set wal theme with dune wallpaper
 #wal -i ~/Pictures/wallpaper/dune1.jpg
