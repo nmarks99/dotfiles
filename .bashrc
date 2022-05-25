@@ -127,8 +127,10 @@ if [ "$TERM" != "linux" ]; then
     source ~/local/pureline/pureline ~/.config/pureline/.pureline.conf
 fi
 
-# Neovim stuff. vi and vim are aliased to nvim in .bash_aliases 
+# Set editor to neovim. vi and vim are aliased to nvim in .bash_aliases
 export EDITOR='nvim'
+
+# setup stuff for nvm (node version manager)_
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -151,3 +153,4 @@ export PATH=$PATH:/usr/local/go/bin
 
 # tstock api key
 export ALPHAVANTAGE_API_KEY=YUAH8AT3ER1C5BWEV
+
