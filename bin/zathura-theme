@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+if [ "$1" == "nord" ]; then
+    cp ~/.config/zathura/zathurarc-nord ~/.config/zathura/zathurarc  
+elif [ "$1" == "light" ]; then
+    cp ~/.config/zathura/zathurarc-light ~/.config/zathura/zathurarc 
+elif [ "$1" == "dark" ]; then
+    cp ~/.config/zathura/zathurarc-dark ~/.config/zathura/zathurarc 
+else
+    echo "No theme named $1"
+fi
