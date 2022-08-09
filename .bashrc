@@ -87,11 +87,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -123,9 +118,11 @@ fi
 export PATH=$PATH:~/.platformio/penv/bin
 
 # Source pureline configuration
-if [ "$TERM" != "linux" ]; then
-    source ~/local/pureline/pureline ~/.config/pureline/.pureline.conf
-fi
+if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ]; then
+    source ~/local/pureline/pureline ~/.config/pureline/pureline.conf
+elif [ "$TERM_PROGRAM" == "vscode" ]; then 
+    source ~/local/pureline/pureline ~/.config/pureline/pureline_vscode.conf
+fi 
 
 # Set editor to neovim. vi and vim are aliased to nvim in .bash_aliases
 export EDITOR='nvim'
@@ -136,7 +133,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set font colors for directories displayed with ls
-LS_COLORS=$LS_COLORS:'di=0;34:' ; export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=0;31:' ; export LS_COLORS
 
 # Set wal theme with dune wallpaper
 #wal -i ~/Pictures/wallpaper/dune1.jpg
@@ -153,4 +150,12 @@ export PATH=$PATH:/usr/local/go/bin
 
 # tstock api key
 export ALPHAVANTAGE_API_KEY=YUAH8AT3ER1C5BWEV
+
+# ARM tools
+export PATH="$PATH:~/local/arm_tools/gcc-arm-none-eabi-10.3-2021.10/bin/"
+
+# deno
+export PATH="$PATH:~/.deno/bin/"
+
+
 
