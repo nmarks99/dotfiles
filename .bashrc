@@ -111,6 +111,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+
 # Source cargo 
 . "$HOME/.cargo/env"
 
@@ -118,16 +120,15 @@ fi
 export PATH=$PATH:~/.platformio/penv/bin
 
 # Source pureline configuration
-if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ]; then
+# Don't use pureline in vscode integrated terminal or default gnome terminal
+if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
     source ~/local/pureline/pureline ~/.config/pureline/pureline.conf
-elif [ "$TERM_PROGRAM" == "vscode" ]; then 
-    source ~/local/pureline/pureline ~/.config/pureline/pureline_vscode.conf
 fi 
 
 # Set editor to neovim. vi and vim are aliased to nvim in .bash_aliases
 export EDITOR='nvim'
 
-# setup stuff for nvm (node version manager)_
+# setup stuff for nvm (node version manager)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

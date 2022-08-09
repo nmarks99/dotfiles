@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+tty-clock -s -S -b -c -C 3
