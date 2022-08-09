@@ -6,14 +6,20 @@ alias icat="kitty +kitten icat"
 alias map="telnet mapscii.me"
 alias minimize_active_window="xdotool getactivewindow windowminimize"
 alias devs="df -h"
+alias countryfetch="~/.local/bin/countryfetch"
 
 # Replace vim with neovim
 alias vim='nvim'
 alias vi='nvim'
 
-# rust lsd to replace ls
-alias ls="lsd"
+# lsd doesn't work in vscode integrated terminal 
+# only alias ls for it when not in vscode 
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    alias ls="lsd"
+fi
+
 
 # rust bat to replace cat
 alias cat="bat --paging=never"
+
 
