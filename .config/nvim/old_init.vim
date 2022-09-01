@@ -23,6 +23,15 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'Xuyuanp/nerdtree-git-plugin'   
     Plug 'ryanoasis/vim-devicons' 
     
+    " themes
+    Plug 'sainnhe/everforest'
+    Plug 'joshdick/onedark.vim'
+    
+    " code completion and linting
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+    Plug 'sheerun/vim-polyglot' 
+
+    " Misc
     Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' } "python highlights
     Plug 'chrisbra/sudoedit.vim' " sudo nvim for editing readonlys
     Plug 'kyazdani42/nvim-web-devicons'
@@ -30,23 +39,18 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'ap/vim-css-color' " color highlighter    
     Plug 'preservim/nerdcommenter' " code commenting
     Plug 'tpope/vim-fugitive' " use git from within neovim
-
-    " themes
-    Plug 'sainnhe/everforest'
-    Plug 'joshdick/onedark.vim'
-    
-    " code completion and linting
-    Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-    " Plug 'w0rp/ale'
-    Plug 'sheerun/vim-polyglot' 
+    Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 call plug#end()
+
+lua require("init")
+
 
 colorscheme onedark
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
 
-
+set termguicolors
 
 " Lightline
 let g:lightline = {
@@ -56,6 +60,8 @@ let g:lightline = {
   \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \     }
   \ }
+
+let g:lightline={ 'enable': {'statusline': 1, 'tabline': 0} }
 
 
 
@@ -256,6 +262,10 @@ let g:NERDSpaceDelims = 1
 " " Map ++ to call NERD Commenter and use iTerm key bindings 
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
+
+
+
 
 
 
