@@ -35,8 +35,7 @@ require('bufferline').setup {
         }
     }
 }
-vim.cmd("nnoremap <silent>b] :BufferLineCycleNext<CR>")
-vim.cmd("nnoremap <silent>b[ :BufferLineCyclePrev<CR>")
+vim.cmd("nnoremap <silent><ctrl+tab> :BufferLineMoveNext<CR>")
 
 
 
