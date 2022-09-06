@@ -1,7 +1,7 @@
-require "lua.plugins"
-require "lua.tree"
-require "lua.theme"
-require "lua.barbar"
+require "plugins"
+require "tree"
+require "theme"
+require "barbar"
 
 -- general settings 
 vim.opt.compatible = false              -- disable compatibility with old-time vi
