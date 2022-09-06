@@ -2,14 +2,18 @@ local paq = require("paq")
 paq {
     "savq/paq-nvim";
     
-    -- nerdtree
-    'preservim/nerdtree';
-    'tiagofumo/vim-nerdtree-syntax-highlight';
-    'Xuyuanp/nerdtree-git-plugin';
-    'ryanoasis/vim-devicons'; 
+    -- file explorer
+    -- 'preservim/nerdtree';
+    -- 'tiagofumo/vim-nerdtree-syntax-highlight';
+    -- 'Xuyuanp/nerdtree-git-plugin';
+
+    -- 'ryanoasis/vim-devicons'; 
+
+    'kyazdani42/nvim-tree.lua'; 
     
-    -- bufferline
-    'akinsho/bufferline.nvim';
+    -- tabs like ide
+    -- 'akinsho/bufferline.nvim';
+    'romgrk/barbar.nvim';
     
     -- lualine for info at bottom 
     'nvim-lualine/lualine.nvim';
