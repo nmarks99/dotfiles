@@ -3,7 +3,6 @@ require "tree"
 require "theme"
 require "barbar"
 require "scripts/change_theme"
-require "scripts/b"
 
 
 -- general settings 
