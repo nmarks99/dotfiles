@@ -132,5 +132,5 @@ nvim_tree_events.subscribe('Resize', function()
 end)
 
 nvim_tree_events.subscribe('TreeClose', function()
-  bufferline_state.set_offset(0)
+  bufferline_state.set_offset(0,'File Explorer')
 end)

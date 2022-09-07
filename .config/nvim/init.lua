@@ -2,16 +2,19 @@ require "plugins"
 require "tree"
 require "theme"
 require "barbar"
+require "scripts/change_theme"
+require "scripts/b"
+
 
 -- general settings 
 vim.opt.compatible = false              -- disable compatibility with old-time vi
 vim.opt.showmatch = true                -- show matching brackets
-vim.opt.ignorecase = true               --case sensative matching
-vim.opt.hlsearch = true                 --highlight search results 
-vim.opt.tabstop = 4                     --number of columns occupied by a tab character
+vim.opt.ignorecase = true               -- case sensative matching
+vim.opt.hlsearch = true                 -- highlight search results 
+vim.opt.tabstop = 4                     -- number of columns occupied by a tab character
 vim.opt.softtabstop = 4                 -- set multiple spaces as tab stops so <BS> does the right thing
 vim.opt.shiftwidth = 4                  -- width for auto indents
-vim.opt.autoindent = true               --indent new line same amount as one just typed
+vim.opt.autoindent = true               -- indent new line same amount as one just typed
 vim.opt.number = true                   -- add line numbers 
 vim.opt.expandtab = true                -- converts tabs to white space
 vim.cmd("filetype plugin indent on")    -- auto-indents based on plugin type
@@ -20,7 +23,8 @@ vim.cmd("set wildmode=longest,list")    -- get bash-like tab completions
 vim.cmd("syntax on")                    -- enable syntax highlighting
 vim.opt.termguicolors = true
 
-
+-- Turn off weird space error thing in vim polyglot for python
+vim.g.python_highlight_space_errors = 0
 
 -- nerd commenter
 vim.cmd([[
