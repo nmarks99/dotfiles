@@ -2,7 +2,7 @@ require "plugins"
 require "tree"
 require "theme"
 require "barbar"
-require "scripts/change_theme"
+-- require "scripts/change_theme"
 
 
 -- general settings 
