@@ -3,8 +3,15 @@
     -- gruvbox
     -- onedark
     -- nord
-   
-vim.cmd("colorscheme nord")
+    -- catpuccin
+    
+vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+
+require("catppuccin").setup({
+    transparent_background = true
+})
+
+vim.cmd [[colorscheme catppuccin]]   
 
 vim.cmd([[
     autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE

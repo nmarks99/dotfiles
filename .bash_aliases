@@ -18,7 +18,6 @@ if [ "$TERM_PROGRAM" != "vscode" ]; then
     alias ls="lsd"
 fi
 
-
 # rust bat to replace cat
 alias cat="bat --paging=never"
 

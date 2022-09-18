@@ -23,6 +23,7 @@ paq {
     'joshdick/onedark.vim';
     'morhetz/gruvbox';
     'shaunsingh/nord.nvim';
+    { "catppuccin/nvim", as = "catppuccin" };
 
     -- misc
     'kyazdani42/nvim-web-devicons'; -- nicer icons
