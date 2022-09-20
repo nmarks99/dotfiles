@@ -1,6 +1,5 @@
 {
   "Lua.telemetry.enable": true,
   "sumneko-lua.enableNvimLuaDev": true,
-  "pyright.inlayHints.enable": false
-
+  "inlayHint.enable": false
 }

@@ -158,5 +158,6 @@ export PATH="$PATH:~/local/arm_tools/gcc-arm-none-eabi-10.3-2021.10/bin/"
 # deno
 export PATH="$PATH:~/.deno/bin/"
 
-
+# ROS
+source /opt/ros/humble/setup.bash
 
