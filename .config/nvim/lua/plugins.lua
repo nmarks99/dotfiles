@@ -13,11 +13,8 @@ paq {
     'nvim-lualine/lualine.nvim';
 
     -- code completion and linting 
-    -- {'ms-jpq/coq_nvim', branch = 'coq'};
-    -- {'ms-jpq/coq.artifacts', branch = 'artifacts'};
-    -- {'ms-jpq/coq.thirdparty', branch = '3p'};
-    -- {'neoclide/coc.nvim', branch = "release"};
-    'sheerun/vim-polyglot'; -- all in one syntax highlighting
+    {'neoclide/coc.nvim', branch = "release"};
+    -- 'sheerun/vim-polyglot'; -- all in one syntax highlighting
 
     -- themes
     'joshdick/onedark.vim';

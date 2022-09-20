@@ -2,6 +2,7 @@ require "plugins"
 require "tree"
 require "theme"
 require "barbar"
+require "coc"
 -- require "scripts/change_theme"
 
 

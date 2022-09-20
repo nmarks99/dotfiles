@@ -3,19 +3,19 @@ local expr_opts = { noremap = true, silent = true, expr = true }
 local opts = { noremap = true, silent = true }
 
 -- Extensions
--- vim.g["coc_global_extensions"] = {
---     "coc-json",
---     "coc-css",
---     "coc-html",
---     "coc-toml",
---     "coc-pyright",
---     "coc-snippets",
---     "coc-vimlsp",
---     "coc-lists",
---     "coc-sh",
---     "coc-sumneko-lua",
---     "coc-rust-analyzer",
--- }
+vim.g["coc_global_extensions"] = {
+    "coc-json",
+    "coc-jedi",
+    "coc-css",
+    "coc-html",
+    "coc-toml",
+    "coc-snippets",
+    "coc-vimlsp",
+    "coc-lists",
+    "coc-sh",
+    "coc-sumneko-lua",
+    "coc-rust-analyzer",
+}
 
 -- highlight
 -- for custom pop menu
