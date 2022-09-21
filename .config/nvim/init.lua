@@ -5,7 +5,6 @@ require "barbar"
 require "coc"
 -- require "scripts/change_theme"
 
-
 -- general settings 
 vim.opt.compatible = false              -- disable compatibility with old-time vi
 vim.opt.showmatch = true                -- show matching brackets
