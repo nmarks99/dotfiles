@@ -13,9 +13,9 @@ vim.g["coc_global_extensions"] = {
     "coc-vimlsp",
     "coc-lists",
     "coc-sh",
-    "coc-sumneko-lua",
     "coc-rust-analyzer",
 }
+
 
 -- highlight
 -- for custom pop menu

@@ -14,7 +14,7 @@ paq {
 
     -- code completion and linting 
     {'neoclide/coc.nvim', branch = "release"};
-    -- 'sheerun/vim-polyglot'; -- all in one syntax highlighting
+    'sheerun/vim-polyglot'; -- all in one syntax highlighting
 
     -- themes
     'joshdick/onedark.vim';
