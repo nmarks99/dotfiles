@@ -22,3 +22,5 @@ entry {
     expand: 				true;
     text-color:				@ac;
 }
+
+@theme "catpuccin-mocha"
