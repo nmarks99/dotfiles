@@ -1,11 +1,38 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
+import sys
+import os
 
-if [ "$1" == "nord" ]; then
-    cp ~/.config/zathura/nord ~/.config/zathura/zathurarc  
-elif [ "$1" == "light" ]; then
-    cp ~/.config/zathura/light ~/.config/zathura/zathurarc 
-elif [ "$1" == "dark" ]; then
-    cp ~/.config/zathura/dark ~/.config/zathura/zathurarc 
-else
-    echo "No theme named $1"
-fi
+all_themes = [
+    "light",
+    "dark",
+    "nord",
+    "catpuccin-mocha",
+    "catpuccin-frappe",
+    "catpuccin-latte",
+    "catpuccin-macchiato"
+]
+
+args = sys.argv
+
+assert(len(args) == 2),f"Invalid number of inputs. Expected 1, recieved {len(args)-1}"
+
+
+if args[1] == "list":
+    for i in all_themes:
+        print(i)
+    exit()
+else:
+    theme = args[1]
+
+if theme not in all_themes:
+    raise ValueError(f'Theme "{theme}" not available')
+
+else:
+    print(f'Applying theme "{theme}"')
+    ZRC = "~/.config/zathura/zathurarc"
+    sd_cmd = f'sd "themes/.*" "themes/{theme}" {ZRC}'
+    os.system(sd_cmd)
+
+
+
+
