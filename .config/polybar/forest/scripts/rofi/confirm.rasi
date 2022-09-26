@@ -23,4 +23,4 @@ entry {
     text-color:				@ac;
 }
 
-@theme "catpuccin-mocha"
+@theme "catpuccin-mocha-powermenu"
