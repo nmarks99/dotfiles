@@ -20,6 +20,6 @@ set recolor-keephue             "true"
 map b toggle_statusbar
 
 #THEME
-include themes/dark
+include themes/light
 
 

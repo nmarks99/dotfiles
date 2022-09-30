@@ -123,7 +123,11 @@ export PATH=$PATH:~/.platformio/penv/bin
 # Don't use pureline in vscode integrated terminal or default gnome terminal
 if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
     source ~/local/pureline/pureline ~/.config/pureline/pureline.conf
-fi 
+fi
+
+# starship
+# eval "$(starship init bash)"
+
 
 # Set editor to neovim. vi and vim are aliased to nvim in .bash_aliases
 export EDITOR='nvim'
