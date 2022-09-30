@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Copies local files from the past 24h to OneDrive remote
+if [ $1 == "sync" ]; then
+    rclone copy --max-age 24h --no-traverse -i -P ~/OneDrive/ OneDrive:
+fi
