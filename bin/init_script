@@ -4,8 +4,5 @@
 ksuperkey -e 'Super_L=Alt_L|R'
 
 # Start polybar
-~/.config/polybar/launch.sh --forest
+~/.config/polybar/launch.sh --shapes
 
-
-# Kill running instance of onedrive since it gets messed up 
-killall onedrive 2>/dev/null

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [ $1 == "push" ]; then 
-    rclone sync --modify-window 2s --progress --filter-from ~/OneDrive/filter_list.txt OneDrive/ OneDrive:
+    rclone sync --modify-window 2s --progress --filter-from ~/OneDrive/.filter_list.txt OneDrive/ OneDrive:
 elif [ $1 == "pull" ]; then
-    rclone sync --modify-window 2s --progress --filter-from ~/OneDrive/filter_list.txt OneDrive: OneDrive/
+    rclone sync --modify-window 2s --progress --filter-from ~/OneDrive/.filter_list.txt OneDrive: OneDrive/
 fi
