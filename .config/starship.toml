@@ -4,12 +4,11 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Replace the "❯" symbol in the prompt with "➜"
 [character]
 # success_symbol = "[➜](bold green)"
 # success_symbol = "[∫](bold purple)"
 # success_symbol = "[🌔λ](bold purple)"
-success_symbol = "[>](bold purple)"
+success_symbol = "[❯](bold purple)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
