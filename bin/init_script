@@ -4,5 +4,5 @@
 ksuperkey -e 'Super_L=Alt_L|R'
 
 # Start polybar
-~/.config/polybar/launch.sh --shapes
+~/.config/polybar/launch.sh --forest
 
