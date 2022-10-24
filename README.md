@@ -36,7 +36,7 @@ This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-module
 - [cmatrix](https://github.com/abishekvashok/cmatrix): display matrix animation
 - [onedrive](https://github.com/abraunegg/onedrive): cli OneDrive client
 - [polybar](https://github.com/polybar/polybar): highly customizable top status bar
-- [Unite Gnome shell extension](https://github.com/hardpixel/unite-shell): remove window titles in Gnome
+- [GTK Title Bar](https://extensions.gnome.org/extension/1732/gtk-title-bar/)
 - [neovim](https://github.com/neovim/neovim): vim editor but better
 - [pureline](https://github.com/chris-marsh/pureline): terminal prompt that looks cool
 - [zathura](https://pwmt.org/projects/zathura/): pdf reader
