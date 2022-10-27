@@ -165,4 +165,4 @@ export PATH="$PATH:~/.deno/bin/"
 # ROS
 source /opt/ros/humble/setup.bash
 export PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources
-
+source ~/rosws/nuws/install/setup.bash
