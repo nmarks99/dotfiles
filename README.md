@@ -3,6 +3,12 @@
 
 ## Settings/Tweaks
 
+
+### Touchpad fix in Qtile
+When using Qtile, for some reason the touchpad does not use natural 
+scrolling and does not allow tapping. To enable this with libinput, 
+I edited /usr/share/X11/xorg.conf.d/40-libinput.conf.
+
 ### Firefox scroll speed
 - Type about:config
 - Search for `mousewheel.default.delta_multiplier_y` and decrease it
@@ -20,6 +26,7 @@ This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-module
 
 ## Programs
 
+- [qtile](http://www.qtile.org/): tiling window manager written/configured in python
 - [tstock](https://github.com/Gbox4/tstock): stock charts in terminal
 - [bitwise](https://github.com/mellowcandle/bitwise): bitwise calculations and conversions
 - preload: quickstart apps with RAM
@@ -36,7 +43,7 @@ This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-module
 - [cmatrix](https://github.com/abishekvashok/cmatrix): display matrix animation
 - [onedrive](https://github.com/abraunegg/onedrive): cli OneDrive client
 - [polybar](https://github.com/polybar/polybar): highly customizable top status bar
-- [GTK Title Bar](https://extensions.gnome.org/extension/1732/gtk-title-bar/)
+- [GTK Title Bar](https://extensions.gnome.org/extension/1732/gtk-title-bar/): hide title bars in gnome/mutter
 - [neovim](https://github.com/neovim/neovim): vim editor but better
 - [pureline](https://github.com/chris-marsh/pureline): terminal prompt that looks cool
 - [zathura](https://pwmt.org/projects/zathura/): pdf reader
