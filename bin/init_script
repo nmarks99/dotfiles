@@ -3,7 +3,7 @@
 # Start polybar
 ~/.config/polybar/launch.sh ${1:---forest}
 
-# Only do this on gnome/mutter
+# Only do this on gnome
 if [ "$XDG_CURRENT_DESKTOP" == "ubuntu:GNOME" ]; then
     # Set super(Windows) key to be alt+R. In settings this is mapped to rofi
     ksuperkey -e 'Super_L=Alt_L|R'
