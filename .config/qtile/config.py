@@ -69,11 +69,21 @@ keys = [
         "XF86AudioLowerVolume",
         lazy.spawn("amixer sset Master 5%-"),
         lazy.spawn("amixer sset Headphone 5%-"),
+        lazy.spawn("amixer sset 'PGA1.0 1 Master' 5%-"),
+        lazy.spawn("amixer sset 'PGA3.0 3 Master' 5%-"),
+        lazy.spawn("amixer sset 'PGA7.0 7 Master' 5%-"),
+        lazy.spawn("amixer sset 'PGA8.0 8 Master' 5%-"),
+        lazy.spawn("amixer sset 'PGA9.0 9 Master' 5%-"),
         desc="Lower Volume by 5%"
     ),
     Key([],
         "XF86AudioRaiseVolume",
         lazy.spawn("amixer sset Master 5%+"),
+        lazy.spawn("amixer sset 'PGA1.0 1 Master' 5%+"),
+        lazy.spawn("amixer sset 'PGA3.0 3 Master' 5%+"),
+        lazy.spawn("amixer sset 'PGA7.0 7 Master' 5%+"),
+        lazy.spawn("amixer sset 'PGA8.0 8 Master' 5%+"),
+        lazy.spawn("amixer sset 'PGA9.0 9 Master' 5%+"),
         lazy.spawn("amixer sset Headphone 5%+"),
         desc="Raise Volume by 5%"
     )
