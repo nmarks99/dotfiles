@@ -9,9 +9,12 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 import subprocess
 
-#  Key([], 'XF86MonBrightnessUp',   lazy.function(backlight('inc'))),
-#  Key([], 'XF86MonBrightnessDown', lazy.function(backlight('dec'))),
-#
+mod = "mod4"
+wallpaper_path = "~/Pictures/wallpaper/desert_night.jpg"
+lockscreen_wallapaper_path = "./Pictures/wallpaper/desert_night"
+terminal = "kitty"
+
+
 @hook.subscribe.startup_once
 def autostart():
     '''
@@ -20,11 +23,6 @@ def autostart():
     autostart_script_path = "/home/nick/.config/qtile/autostart.sh"
     subprocess.Popen([autostart_script_path])
 
-
-mod = "mod4"
-wallpaper_path = "~/Pictures/wallpaper/desert_night.jpg"
-terminal = "kitty"
-
 keys = [
 
     # Switch between windows
@@ -32,7 +30,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key(["mod1"], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
     
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -86,10 +84,9 @@ keys = [
         lazy.spawn("amixer sset 'PGA9.0 9 Master' 5%+"),
         lazy.spawn("amixer sset Headphone 5%+"),
         desc="Raise Volume by 5%"
-    )
-
-    #  Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 10%+"), desc='brightness up'),
-    #  Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness down')
+    ),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 10%+"), desc='brightness up'),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness down')
 ]
 
 groups = [Group(i) for i in "123456789"]
