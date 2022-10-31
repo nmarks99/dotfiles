@@ -7,8 +7,8 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-#  from utils import gen_unique_filename
-import datatime
+from utils import gen_unique_filename
+import datetime
 import subprocess
 
 mod = "mod4"
@@ -27,12 +27,12 @@ def autostart():
     autostart_script_path = "/home/nick/.config/qtile/autostart.sh"
     subprocess.Popen([autostart_script_path])
 
-#  def screenshot():
-    #  stamp = datetime.datetime.now()
-    #  stamp = stamp.strftime("%m-%d-%Y_%I-%M-%S")
-    #  name = "".join(["screenshot",stamp])
-    #  filename = gen_unique_filename(name, "png",directory=screenshot_dir_path)
-    #  lazy.spawn(["sh","-c",f"import {filename}"])
+def screenshot():
+    stamp = datetime.datetime.now()
+    stamp = stamp.strftime("%m-%d-%Y_%I-%M-%S")
+    name = "".join(["screenshot",stamp])
+    filename = gen_unique_filename(name, "png",directory=screenshot_dir_path)
+    lazy.spawn(["sh","-c",f"import {filename}"])
 
 
 keys = [
