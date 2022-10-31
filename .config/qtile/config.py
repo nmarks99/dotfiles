@@ -16,7 +16,7 @@ terminal = "kitty"
 
 wallpaper_path = "~/Pictures/wallpaper/desert_night.jpg"
 lockscreen_wallapaper_path = "./Pictures/wallpaper/desert_night"
-screenshot_dir_path = "~/Pictures/Screenshots/"
+screenshot_dir_path = "/home/nick/Pictures/Screenshots/"
 
 
 @hook.subscribe.startup_once
@@ -28,11 +28,18 @@ def autostart():
     subprocess.Popen([autostart_script_path])
 
 def screenshot():
+    '''
+    Generates a unique filename for a screenshot
+    named "screenshot_TIMSTAMP" in the ~/Pictures/Screenshots
+    directory. Then creates a bash command(string) using imagemagick
+    and returns it
+    '''
     stamp = datetime.datetime.now()
     stamp = stamp.strftime("%m-%d-%Y_%I-%M-%S")
-    name = "".join(["screenshot",stamp])
-    filename = gen_unique_filename(name, "png",directory=screenshot_dir_path)
-    lazy.spawn(["sh","-c",f"import {filename}"])
+    name = "".join(["screenshot_",stamp])
+    filename = gen_unique_filename(name, ".png",directory=screenshot_dir_path)
+    cmd = f"import {filename}"
+    return cmd
 
 
 keys = [
@@ -67,7 +74,8 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "space", lazy.spawn("launcher.sh"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn("firefox"), desc="Launch Firefox"),
-    Key([mod,"shift"], "s", screenshot(), desc="Screenshot with imagemagick"),
+    Key([mod,"shift"], "s", lazy.spawn(["sh","-c",screenshot()]), desc="Screenshot with imagemagick"),
+    
     Key([],
         "XF86AudioLowerVolume",
         lazy.spawn("amixer sset Master 5%-"),
