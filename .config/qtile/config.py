@@ -1,4 +1,3 @@
-
 # Scroll direction and tap to click was messed up for some reason when I first
 # started qtile so to fix it I adjusted the settings with xinput
 # xinput list-prop 10, xinput setprop 10 325 1
@@ -6,26 +5,27 @@
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-from utils import gen_unique_filename
+#  from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 import datetime
 import subprocess
+from colors import catpuccin
 
+
+
+#################
+### Variables ###
+#################
 mod = "mod4"
 terminal = "kitty"
+browser = "firefox"
 
-wallpaper_path = "~/Pictures/wallpaper/desert_night.jpg"
+desktop_wallpaper = "~/Pictures/wallpaper/catpuccin/sound.png"
 lockscreen_wallapaper_path = "./Pictures/wallpaper/desert_night"
 screenshot_dir_path = "/home/nick/Pictures/Screenshots/"
 
+GAP_SIZE = 5
 
-@hook.subscribe.startup_once
-def autostart():
-    '''
-    This function runs upon starting Qtile the first time
-    '''
-    autostart_script_path = "/home/nick/.config/qtile/autostart.sh"
-    subprocess.Popen([autostart_script_path])
+
 
 def screenshot():
     '''
@@ -36,22 +36,24 @@ def screenshot():
     '''
     stamp = datetime.datetime.now()
     stamp = stamp.strftime("%m-%d-%Y_%I-%M-%S")
-    name = "".join(["screenshot_",stamp])
-    filename = gen_unique_filename(name, ".png",directory=screenshot_dir_path)
-    cmd = f"import {filename}"
+    name = "".join([screenshot_dir_path,"screenshot_",stamp,".png"])
+    cmd = f"import {name}"
     return cmd
 
 
+#################
+## Keybindings ##
+#################
+
 keys = [
 
-    # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key(["mod1"], "Tab", lazy.layout.next(), desc="Move window focus to other window"),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
@@ -59,13 +61,6 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-   
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -73,11 +68,16 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "space", lazy.spawn("launcher.sh"), desc="Launch Rofi"),
-    Key([mod], "b", lazy.spawn("firefox"), desc="Launch Firefox"),
-    Key([mod,"shift"], "s", lazy.spawn(["sh","-c",screenshot()]), desc="Screenshot with imagemagick"),
+    Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
+    Key([mod,"shift"], "s", lazy.spawn(["sh","-c",screenshot()]), desc="Screenshot"),
+    Key(
+        [mod, "shift"],
+        "Return",
+        lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack",
+    ),
     
-    Key([],
-        "XF86AudioLowerVolume",
+    Key([], "XF86AudioLowerVolume",
         lazy.spawn("amixer sset Master 5%-"),
         lazy.spawn("amixer sset Headphone 5%-"),
         lazy.spawn("amixer sset 'PGA1.0 1 Master' 5%-"),
@@ -87,8 +87,7 @@ keys = [
         lazy.spawn("amixer sset 'PGA9.0 9 Master' 5%-"),
         desc="Lower Volume by 5%"
     ),
-    Key([],
-        "XF86AudioRaiseVolume",
+    Key([], "XF86AudioRaiseVolume",
         lazy.spawn("amixer sset Master 5%+"),
         lazy.spawn("amixer sset 'PGA1.0 1 Master' 5%+"),
         lazy.spawn("amixer sset 'PGA3.0 3 Master' 5%+"),
@@ -98,12 +97,23 @@ keys = [
         lazy.spawn("amixer sset Headphone 5%+"),
         desc="Raise Volume by 5%"
     ),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 10%+"), desc='brightness up'),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 10%-"), desc='brightness down')
+    Key([], "XF86MonBrightnessUp",
+        lazy.spawn("brightnessctl s 5%+"),
+        desc='Increase brightness'
+    ),
+    Key([], "XF86MonBrightnessDown",
+        lazy.spawn("brightnessctl s 5%-"),
+        desc='Decrease brightness'
+    )
 ]
 
-groups = [Group(i) for i in "123456789"]
 
+
+#################
+#### Groups #####
+#################
+
+groups = [Group(i) for i in "12345"]
 for i in groups:
     keys.extend(
         [
@@ -121,34 +131,68 @@ for i in groups:
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
         ]
     )
 
+
+
+#################
+#### Layouts ####
+#################
+
 layouts = [
     layout.Columns(
-        border_focus_stack=["#0af2ee", "#0af2ee"],
-        border_width=4,
-        margin = 6
+        border_normal= catpuccin["blue"],
+        border_focus = catpuccin["peach"],
+        border_focus_stack = catpuccin["lavender"],
+        border_width=2,
+        margin = GAP_SIZE
     ),
     layout.Max(
-        margin = 6
+        margin = GAP_SIZE
     ),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
+
+
+
+#########################
+#### Widgets/Screens ####
+#########################
+
+# Decorations
+#  arrow_right = {
+    #  "decorations": [PowerLineDecoration(path="arrow_right")]
+#  }
+#
+#  arrow_left = {
+    #  "decorations": [PowerLineDecoration(path="arrow_left")]
+#  }
+#
+#  rounded_right = {
+    #  "decorations": [PowerLineDecoration(path="rounded_right")]
+#  }
+#
+#  rounded_left = {
+    #  "decorations": [PowerLineDecoration(path="rounded_left")]
+#  }
+#
+#  slash_back = {
+    #  "decorations": [PowerLineDecoration(path="back_slash")]
+#  }
+#
+#  slash_forward = {
+    #  "decorations": [PowerLineDecoration(path="forward_slash")]
+#  }
+#
+#  border = {
+    #  "decorations": [RectDecoration(
+        #  colour=mauve,
+        #  radius=10,
+        #  filled=True,
+        #  padding_y=4,
+        #  group=True
+    #  )]
+#  }
 
 widget_defaults = dict(
     font="JetBrainsMono",
@@ -157,41 +201,64 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+
+#  def widgets_list():
+    #  widgets_list = [
+        #  widget.Spacer(
+            #  background = catpuccin["crust"],
+            #  length = 8
+        #  ),
+    #  ]
+
+
 screens = [
     Screen(
-        wallpaper=wallpaper_path,
+        wallpaper=desktop_wallpaper,
+        wallpaper_mode="fill",
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                #  widget.Prompt(),
-                #  widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.CurrentLayoutIcon(),
+                widget.GroupBox(
+                    disable_drag = True,
+
                 ),
-                #  widget.TextBox("default config", name="default"),
-                #  widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Clock(format="%m-%d-%Y\t%a %I:%M %p"),
-                #  widget.QuickExit(),
+                widget.Battery(
+                    format="Battery: {percent:2.0%}",
+                    font = "Roboto, Regular",
+                    forefround = "#ff0000",
+                    fontsize = 12,
+                    passing = 0
+                )
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            background = catpuccin["mantle"],
+            opacity = 0.55,
+            margin = GAP_SIZE
         ),
     ),
 ]
 
-# Drag floating layouts.
+
+
+
+#################
+### Floating ####
+#################
+
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Drag([mod], "Button1",
+         lazy.window.set_position_floating(),
+         start=lazy.window.get_position()
+    ),
+    Drag([mod], "Button3",
+         lazy.window.set_size_floating(),
+         start=lazy.window.get_size()
+    ),
+    Click([mod], "Button2",
+          lazy.window.bring_to_front()
+    ),
 ]
 
 dgroups_key_binder = None
@@ -211,15 +278,32 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ]
 )
+
+
+#################
+##### Rules #####
+#################
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-
-# If things like steam games want to auto-minimize themselves when losing
-# focus, should we respect this or not?
 auto_minimize = True
-
-# When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
-
 wmname = "qtile"
+
+
+#################
+### Autostart ###
+#################
+
+@hook.subscribe.startup_once
+def autostart():
+    '''
+    This function runs upon starting Qtile the first time
+    '''
+    autostart_script_path = "/home/nick/.config/qtile/autostart.sh"
+    subprocess.Popen([autostart_script_path])
+
+
+
+
