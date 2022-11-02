@@ -20,7 +20,7 @@ terminal = "kitty"
 browser = "firefox"
 
 desktop_wallpaper = "~/Pictures/wallpaper/catpuccin/sound.png"
-lockscreen_wallapaper_path = "./Pictures/wallpaper/desert_night"
+lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 screenshot_dir_path = "/home/nick/Pictures/Screenshots/"
 
 GAP_SIZE = 5
@@ -67,7 +67,7 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "space", lazy.spawn("launcher.sh"), desc="Launch Rofi"),
+    Key([mod], "space", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
     Key([mod,"shift"], "s", lazy.spawn(["sh","-c",screenshot()]), desc="Screenshot"),
     Key(
@@ -142,7 +142,7 @@ for i in groups:
 
 layouts = [
     layout.Columns(
-        border_normal= catpuccin["blue"],
+        border_normal= catpuccin["base"],
         border_focus = catpuccin["peach"],
         border_focus_stack = catpuccin["lavender"],
         border_width=2,
@@ -215,28 +215,28 @@ screens = [
     Screen(
         wallpaper=desktop_wallpaper,
         wallpaper_mode="fill",
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayoutIcon(),
-                widget.GroupBox(
-                    disable_drag = True,
-
-                ),
-                widget.Systray(),
-                widget.Clock(format="%m-%d-%Y\t%a %I:%M %p"),
-                widget.Battery(
-                    format="Battery: {percent:2.0%}",
-                    font = "Roboto, Regular",
-                    forefround = "#ff0000",
-                    fontsize = 12,
-                    passing = 0
-                )
-            ],
-            24,
-            background = catpuccin["mantle"],
-            opacity = 0.55,
-            margin = GAP_SIZE
-        ),
+        #  bottom=bar.Bar(
+            #  [
+                #  widget.CurrentLayoutIcon(),
+                #  widget.GroupBox(
+                    #  disable_drag = True,
+#
+                #  ),
+                #  widget.Systray(),
+                #  widget.Clock(format="%m-%d-%Y\t%a %I:%M %p"),
+                #  widget.Battery(
+                    #  format="Battery: {percent:2.0%}",
+                    #  font = "Roboto, Regular",
+                    #  forefround = "#ff0000",
+                    #  fontsize = 12,
+                    #  passing = 0
+                #  )
+            #  ],
+            #  24,
+            #  background = catpuccin["mantle"],
+            #  opacity = 0.55,
+            #  margin = GAP_SIZE
+        #  ),
     ),
 ]
 
@@ -276,7 +276,10 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+    ],
+    border_normal= catpuccin["base"],
+    border_focus = catpuccin["peach"],
+    border_focus_stack = catpuccin["lavender"]
 )
 
 
