@@ -70,6 +70,7 @@ keys = [
     Key([mod], "space", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
     Key([mod,"shift"], "s", lazy.spawn(["sh","-c",screenshot()]), desc="Screenshot"),
+    Key([mod,"mod1"], "i", lazy.spawn("autorandr -c"), desc="Screenshot"),
     Key(
         [mod, "shift"],
         "Return",
