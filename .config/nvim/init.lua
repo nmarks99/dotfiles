@@ -23,7 +23,7 @@ vim.cmd("syntax on")                    -- enable syntax highlighting
 vim.opt.termguicolors = true
 
 -- Turn off weird space error thing in vim polyglot for python
-vim.g.python_highlight_space_errors = 0
+vim.g.python_highlight_space_errors = 1
 
 -- nerd commenter
 vim.cmd([[
