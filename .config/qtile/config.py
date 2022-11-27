@@ -8,6 +8,7 @@ from libqtile.lazy import lazy
 #  from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 import datetime
 import subprocess
+import os
 from colors import catpuccin
 
 
@@ -80,23 +81,15 @@ keys = [
     
     Key([], "XF86AudioLowerVolume",
         lazy.spawn("amixer sset Master 5%-"),
-        lazy.spawn("amixer sset Headphone 5%-"),
-        lazy.spawn("amixer sset 'PGA1.0 1 Master' 5%-"),
-        lazy.spawn("amixer sset 'PGA3.0 3 Master' 5%-"),
-        lazy.spawn("amixer sset 'PGA7.0 7 Master' 5%-"),
-        lazy.spawn("amixer sset 'PGA8.0 8 Master' 5%-"),
-        lazy.spawn("amixer sset 'PGA9.0 9 Master' 5%-"),
         desc="Lower Volume by 5%"
     ),
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("amixer sset Master 5%+"),
-        lazy.spawn("amixer sset 'PGA1.0 1 Master' 5%+"),
-        lazy.spawn("amixer sset 'PGA3.0 3 Master' 5%+"),
-        lazy.spawn("amixer sset 'PGA7.0 7 Master' 5%+"),
-        lazy.spawn("amixer sset 'PGA8.0 8 Master' 5%+"),
-        lazy.spawn("amixer sset 'PGA9.0 9 Master' 5%+"),
-        lazy.spawn("amixer sset Headphone 5%+"),
         desc="Raise Volume by 5%"
+    ),
+    Key([], "XF86AudioMute",
+        lazy.spawn("amixer -D pulse set Master toggle"),
+        desc="Toggle mute"
     ),
     Key([], "XF86MonBrightnessUp",
         lazy.spawn("brightnessctl s 5%+"),
@@ -297,7 +290,7 @@ wmname = "qtile"
 
 
 #################
-### Autostart ###
+### Startup ###
 #################
 
 @hook.subscribe.startup_once
@@ -309,5 +302,19 @@ def autostart():
     subprocess.Popen([autostart_script_path])
 
 
+# for running qtile under gnome
+@hook.subscribe.startup
+def dbus_register():
+    id = os.environ.get('DESKTOP_AUTOSTART_ID')
+    if not id:
+        return
+    subprocess.Popen(['dbus-send',
+                      '--session',
+                      '--print-reply',
+                      '--dest=org.gnome.SessionManager',
+                      '/org/gnome/SessionManager',
+                      'org.gnome.SessionManager.RegisterClient',
+                      'string:qtile',
+                      'string:' + id])
 
 
