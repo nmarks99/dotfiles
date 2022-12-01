@@ -20,7 +20,7 @@ mod = "mod4"
 terminal = "kitty"
 browser = "firefox"
 
-desktop_wallpaper = "~/Pictures/wallpaper/catpuccin/sound.png"
+desktop_wallpaper = "~/Pictures/wallpaper/catpuccin/the_valley.png"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 screenshot_dir_path = "/home/nick/Pictures/Screenshots/"
 
@@ -294,27 +294,16 @@ wmname = "qtile"
 #################
 
 @hook.subscribe.startup_once
-def autostart():
+def autostart_once():
     '''
     This function runs upon starting Qtile the first time
     '''
     autostart_script_path = "/home/nick/.config/qtile/autostart.sh"
     subprocess.Popen([autostart_script_path])
 
-
-# for running qtile under gnome
 @hook.subscribe.startup
-def dbus_register():
-    id = os.environ.get('DESKTOP_AUTOSTART_ID')
-    if not id:
-        return
-    subprocess.Popen(['dbus-send',
-                      '--session',
-                      '--print-reply',
-                      '--dest=org.gnome.SessionManager',
-                      '/org/gnome/SessionManager',
-                      'org.gnome.SessionManager.RegisterClient',
-                      'string:qtile',
-                      'string:' + id])
-
-
+def autostart_always():
+    '''
+    This function runs every time Qtile is refreshed
+    '''
+    subprocess.call(["polybar_launch.sh","--shapes"])
