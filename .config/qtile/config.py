@@ -22,24 +22,8 @@ browser = "firefox"
 
 desktop_wallpaper = "~/Pictures/wallpaper/catpuccin/the_valley.png"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
-screenshot_dir_path = "/home/nick/Pictures/Screenshots/"
 
 GAP_SIZE = 5
-
-
-
-def screenshot():
-    '''
-    Generates a unique filename for a screenshot
-    named "screenshot_TIMSTAMP" in the ~/Pictures/Screenshots
-    directory. Then creates a bash command(string) using imagemagick
-    and returns it
-    '''
-    stamp = datetime.datetime.now()
-    stamp = stamp.strftime("%m-%d-%Y_%I-%M-%S")
-    name = "".join([screenshot_dir_path,"screenshot_",stamp,".png"])
-    cmd = f"import {name}"
-    return cmd
 
 
 #################
@@ -70,7 +54,7 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "space", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
-    Key([mod,"shift"], "s", lazy.spawn(["sh","-c",screenshot()]), desc="Screenshot"),
+    Key([mod,"shift"], "s", lazy.spawn("screenshot.py"), desc="Screenshot"),
     Key([mod,"mod1"], "i", lazy.spawn("autorandr -c"), desc="Screenshot"),
     Key(
         [mod, "shift"],
