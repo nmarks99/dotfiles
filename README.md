@@ -1,8 +1,23 @@
 # Linux configuration files and scripts
 
+## Disable Graphical Boot
+
+### Gnome on Xorg
+
+Disable graphical boot by default by running 
+`sudo systemctl set-default multi-user`
+
+.xinitrc should contain:
+```
+export XDG_SESSION_TYPE=x11
+export GDK_BACKEND=x11
+exec gnome-session
+```
+
+### Qtile 
+`exec qtile start`
 
 ## Settings/Tweaks
-
 
 ### Touchpad fix in Qtile
 When using Qtile, for some reason the touchpad does not use natural 
