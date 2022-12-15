@@ -19,8 +19,9 @@ from colors import catpuccin
 mod = "mod4"
 terminal = "kitty"
 browser = "firefox"
+POLYBAR_THEME = "forest"
 
-desktop_wallpaper = "~/Pictures/wallpaper/catpuccin/the_valley.png"
+desktop_wallpaper = "~/Pictures/wallpaper/fwstd.jpg"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 
 GAP_SIZE = 5
@@ -51,7 +52,7 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    #  Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "space", lazy.spawn("rofi -show drun"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
     Key([mod,"shift"], "s", lazy.spawn("screenshot.py"), desc="Screenshot"),
@@ -64,11 +65,11 @@ keys = [
     ),
     
     Key([], "XF86AudioLowerVolume",
-        lazy.spawn("amixer sset Master 5%-"),
+        lazy.spawn("amixer sset Master 2%-"),
         desc="Lower Volume by 5%"
     ),
     Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer sset Master 5%+"),
+        lazy.spawn("amixer sset Master 2%+"),
         desc="Raise Volume by 5%"
     ),
     Key([], "XF86AudioMute",
@@ -76,11 +77,11 @@ keys = [
         desc="Toggle mute"
     ),
     Key([], "XF86MonBrightnessUp",
-        lazy.spawn("brightnessctl s 5%+"),
+        lazy.spawn("brightnessctl s 2%+"),
         desc='Increase brightness'
     ),
     Key([], "XF86MonBrightnessDown",
-        lazy.spawn("brightnessctl s 5%-"),
+        lazy.spawn("brightnessctl s 2%-"),
         desc='Decrease brightness'
     )
 ]
@@ -290,4 +291,19 @@ def autostart_always():
     '''
     This function runs every time Qtile is refreshed
     '''
-    subprocess.call(["polybar_launch.sh","--shapes"])
+    subprocess.call(["polybar_launch.sh",f"--{POLYBAR_THEME}"])
+
+
+#  @hook.subscribe.startup
+#  def dbus_register():
+    #  id = os.environ.get('DESKTOP_AUTOSTART_ID')
+    #  if not id:
+        #  return
+    #  subprocess.Popen(['dbus-send',
+                      #  '--session',
+                      #  '--print-reply',
+                      #  '--dest=org.gnome.SessionManager',
+                      #  '/org/gnome/SessionManager',
+                      #  'org.gnome.SessionManager.RegisterClient',
+                      #  'string:qtile',
+                      #  'string:' + id])

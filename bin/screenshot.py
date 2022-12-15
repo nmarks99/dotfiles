@@ -18,6 +18,8 @@ result = subprocess.Popen(
     shell=True,
     stdout=subprocess.PIPE
 )
+
+# copy the image to the clipboard
 file = result.stdout.read().decode("utf-8")
 file = file.rstrip('\n')
 assert result.wait() == 0
