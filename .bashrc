@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+PATH="$HOME/bin:$PATH"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -121,8 +123,8 @@ export PATH=$PATH:~/.platformio/penv/bin
 # Source pureline or starship configuration
 # Don't use pureline in vscode integrated terminal or default gnome terminal
 if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-    source ~/local/pureline/pureline ~/.config/pureline/pureline.conf
-    # eval "$(starship init bash)"
+    # source ~/local/pureline/pureline ~/.config/pureline/pureline.conf
+    eval "$(starship init bash)"
 fi
 
 

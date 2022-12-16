@@ -1,5 +1,6 @@
 {
   "Lua.telemetry.enable": true,
   "sumneko-lua.enableNvimLuaDev": true,
-  "inlayHint.enable": false
+  "inlayHint.enable": false,
+  "snippets.ultisnips.pythonPrompt": false
 }

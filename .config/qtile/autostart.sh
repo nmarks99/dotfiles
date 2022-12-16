@@ -1,4 +1,15 @@
 #!/usr/bin/env bash 
-picom -b & # start picom
-autorandr -c # run autorandr to autodetect monitor
+
+# Enable tapping and natural scrolling
+xinput set-prop "MSFT0001:00 06CB:CD3E Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "MSFT0001:00 06CB:CD3E Touchpad" "libinput Tapping Enabled" 1
+
+# Start picom compositor
+picom -b &
+
+# Start udiskie to automount USB
+udiskie &
+
+# Run autorandr to autodetect monitor
+# autorandr -c 
 
