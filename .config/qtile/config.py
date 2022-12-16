@@ -20,7 +20,7 @@ terminal = "kitty"
 browser = "firefox"
 POLYBAR_THEME = "forest"
 
-desktop_wallpaper = "/usr/share/backgrounds/warty-final-ubuntu.png"
+desktop_wallpaper = "/usr/share/backgrounds/ubuntu-default-greyscale-wallpaper.png"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 
 GAP_SIZE = 5
