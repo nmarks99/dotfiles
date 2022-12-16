@@ -19,6 +19,7 @@ vim.g["coc_global_extensions"] = {
 
 -- highlight
 -- for custom pop menu
+-- vim.api.nvim_set_hl
 vim.highlight.create("CocCustomPopup", { guifg = "#ebdbb2", guibg = "#282828" })
 -- border
 vim.highlight.create("CocCustomPopupBoder", { guifg = "#5F5F5F", gui = "bold" })
