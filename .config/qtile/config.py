@@ -1,6 +1,5 @@
-# Scroll direction and tap to click was messed up for some reason when I first
-# started qtile so to fix it I adjusted the settings with xinput
-# xinput list-prop 10, xinput setprop 10 325 1
+# xinput set-prop 10 325 1 # enable natural scrolling
+# xinput set-prop 10 346 1 # enable tapping
 
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
