@@ -123,7 +123,7 @@ export PATH=$PATH:~/.platformio/penv/bin
 # Source pureline or starship configuration
 # Don't use pureline in vscode integrated terminal or default gnome terminal
 if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ] && [ "$TERM_PROGRAM" != "vscode" ]; then
-    # source ~/local/pureline/pureline ~/.config/pureline/pureline.conf
+    # source ~/.config/pureline/pureline ~/.config/pureline/pureline.conf
     eval "$(starship init bash)"
 fi
 
@@ -146,9 +146,6 @@ export PATH=$PATH:/usr/local/bin/MiKTeX
 export SPICETIFY_INSTALL="/home/nick/.spicetify"  
 export PATH="$SPICETIFY_INSTALL:$PATH"
 
-# go-lang 
-export PATH=$PATH:/usr/local/go/bin
-
 # tstock api key
 export ALPHAVANTAGE_API_KEY=YUAH8AT3ER1C5BWEV
 
@@ -162,3 +159,9 @@ export PATH="$PATH:~/.deno/bin/"
 source /opt/ros/humble/setup.bash
 export PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources
 source ~/rosws/nuws/install/setup.bash
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
+

@@ -5,7 +5,6 @@ alias map="telnet mapscii.me"
 alias minimize_active_window="xdotool getactivewindow windowminimize"
 alias devs="df -h"
 alias countryfetch="~/.local/bin/countryfetch"
-alias newest="ls -Art | tail -n 1"
 
 # Replace vim with neovim
 alias vim='nvim'
