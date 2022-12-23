@@ -6,14 +6,14 @@
     -- catpuccin
     
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
-
 require("catppuccin").setup({
-    transparent_background = true
+    transparent_background = false
 })
 
 vim.cmd [[colorscheme catppuccin]]
 
-vim.cmd([[
-    autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-    autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
-]])
+-- use this to set transparent background if needed
+-- vim.cmd([[
+    -- autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+    -- autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
+-- ]])
