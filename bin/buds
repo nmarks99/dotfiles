@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+mac_addr="24:5A:B5:59:FB:99"
+
+if [[ $1 == "connect" ]]; then
+	bluetoothctl power on 
+	bluetoothctl connect $mac_addr
+elif [[ $1 == "disconnect" ]]; then
+	mac_addr="24:5A:B5:59:FB:99"
+	bluetoothctl disconnect $mac_addr
+fi
