@@ -64,11 +64,11 @@ keys = [
     ),
     
     Key([], "XF86AudioLowerVolume",
-        lazy.spawn("amixer sset Master 2%-"),
+        lazy.spawn("amixer -D pulse sset Master 2%-"),
         desc="Lower Volume by 5%"
     ),
     Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer sset Master 2%+"),
+        lazy.spawn("amixer -D pulse sset Master 2%+"),
         desc="Raise Volume by 5%"
     ),
     Key([], "XF86AudioMute",
