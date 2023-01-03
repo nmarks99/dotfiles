@@ -20,7 +20,7 @@ terminal = "kitty"
 browser = "firefox"
 POLYBAR_THEME = "forest"
 
-desktop_wallpaper = "/usr/share/backgrounds/ubuntu-default-greyscale-wallpaper.png"
+desktop_wallpaper = "/home/nick/Pictures/wallpaper/macos_mojave.jpg"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 
 GAP_SIZE = 5
@@ -55,7 +55,7 @@ keys = [
     Key([mod], "space", lazy.spawn("/home/nick/.config/polybar/shapes/scripts/launcher.sh"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
     Key([mod,"shift"], "s", lazy.spawn("screenshot.py"), desc="Screenshot"),
-    Key([mod,"mod1"], "i", lazy.spawn("autorandr -c"), desc="Screenshot"),
+    Key([mod,"mod1"], "i", lazy.spawn("autorandr --change"), desc="Automatically change display"),
     Key(
         [mod, "shift"],
         "Return",
