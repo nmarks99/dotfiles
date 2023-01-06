@@ -14,7 +14,7 @@ export GDK_BACKEND=x11
 exec gnome-session
 ```
 
-### Qtile 
+### Qtile
 `exec qtile start`
 
 ## Settings/Tweaks
