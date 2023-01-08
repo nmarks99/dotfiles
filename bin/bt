@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [[ $2 == "bose" ]]; then
+	mac_addr="C8:7B:23:A5:B5:7C"
+elif [[ $2 == "buds" ]]; then
+	mac_addr="24:5A:B5:59:FB:99"
+else
+	printf "Unknown device $2" 
+	exit
+fi
+
+
+if [[ $1 == "connect" ]]; then
+	bluetoothctl power on 
+	bluetoothctl connect $mac_addr
+elif [[ $1 == "disconnect" ]]; then
+	bluetoothctl disconnect $mac_addr
+
