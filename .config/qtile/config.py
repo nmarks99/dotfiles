@@ -51,11 +51,16 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    #  Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "space", lazy.spawn("/home/nick/.config/polybar/shapes/scripts/launcher.sh"), desc="Launch Rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch Firefox"),
     Key([mod,"shift"], "s", lazy.spawn("screenshot.py"), desc="Screenshot"),
     Key([mod,"mod1"], "i", lazy.spawn("autorandr --change"), desc="Automatically change display"),
+
+    Key([mod], "f",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating",
+    ),
+
     Key(
         [mod, "shift"],
         "Return",
@@ -256,7 +261,7 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
     ],
     border_normal= catpuccin["base"],
-    border_focus = catpuccin["peach"],
+    border_focus = catpuccin["mauve"],
     border_focus_stack = catpuccin["lavender"]
 )
 
