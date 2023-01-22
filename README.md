@@ -66,7 +66,7 @@ This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-module
 - [spicetify](https://github.com/spicetify/spicetify-cli): customize spotify client
 - [Pywal](https://github.com/dylanaraps/pywal): wallpaper/theme setter
 - [figlet](https://github.com/cmatsuoka/figlet): ASCII text banners in terminal
-
+- sct: Set Color Temperature
 
 ## Appearence/Themes
 - [Layan dark theme](https://www.gnome-look.org/p/1309214/)
