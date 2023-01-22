@@ -1,0 +1,9 @@
+#!/usr/bin/env bash 
+
+if [[ $1 == "on" ]]; then
+    sct 3500;
+elif [[ $1 == "off" ]]; then
+    sct;
+else
+    printf "Unknown command $1"
+fi
