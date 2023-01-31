@@ -15,4 +15,7 @@ if [[ $1 == "connect" ]]; then
 	bluetoothctl connect $mac_addr
 elif [[ $1 == "disconnect" ]]; then
 	bluetoothctl disconnect $mac_addr
+else
+	printf "Unknown command $1"
+	exit
 fi
