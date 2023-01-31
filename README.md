@@ -38,6 +38,8 @@ Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on
 ### VirtualBox with UEFI Secure Boot
 This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-modules-vboxdrv-vboxnetflt-vboxnetadp-vboxpci-centos-8) is helpful to sign the vbox modules.
 
+### Use xrandr to mirror display
+Have not tried this but this link seems helpful: https://unix.stackexchange.com/questions/371793/how-to-duplicate-desktop-in-linux-with-xrandr
 
 ## Programs
 
