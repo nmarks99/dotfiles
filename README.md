@@ -17,7 +17,14 @@ exec gnome-session
 ### Qtile
 `exec qtile start`
 
-## Settings/Tweaks
+
+## Fix CH341 Drivers
+This driver should be already installed on ubuntu 22.04, but there is a bug
+that causes the braille display program `brltty` which is also preinstalled
+to break it. To fix it you should just be able to do `sudo apt remove brltty`.
+See this stack exchange post: [https://askubuntu.com/questions/1403705/dev-ttyusb0-not-present-in-ubuntu-22-04](https://askubuntu.com/questions/1403705/dev-ttyusb0-not-present-in-ubuntu-22-04)
+
+## Misc Settings/Tweaks
 
 ### Touchpad fix in Qtile
 When using Qtile, for some reason the touchpad does not use natural 
