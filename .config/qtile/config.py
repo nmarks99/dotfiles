@@ -20,7 +20,7 @@ terminal = "kitty"
 browser = "firefox"
 POLYBAR_THEME = "forest"
 
-desktop_wallpaper = "/home/nick/Pictures/wallpaper/macos_mojave.jpg"
+desktop_wallpaper = "/home/nick/Pictures/wallpaper/endrollbytamaki.png"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 
 GAP_SIZE = 5
@@ -198,12 +198,11 @@ screens = [
     Screen(
         wallpaper=desktop_wallpaper,
         wallpaper_mode="fill",
-        #  bottom=bar.Bar(
+        #  top=bar.Bar(
             #  [
                 #  widget.CurrentLayoutIcon(),
                 #  widget.GroupBox(
                     #  disable_drag = True,
-#
                 #  ),
                 #  widget.Systray(),
                 #  widget.Clock(format="%m-%d-%Y\t%a %I:%M %p"),
