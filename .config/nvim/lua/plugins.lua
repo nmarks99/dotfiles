@@ -2,7 +2,6 @@ local paq = require("paq")
 paq {
     "savq/paq-nvim";
     
-
     -- file explorer
     'kyazdani42/nvim-tree.lua'; 
     
@@ -24,7 +23,6 @@ paq {
 
     -- misc
     'kyazdani42/nvim-web-devicons'; -- nicer icons
-    -- 'numirias/semshi'; -- python highlighter
     'chrisbra/sudoedit.vim'; -- sudo nvim for editing readonlys
     'ap/vim-css-color'; -- display color with CSS color codes
     'preservim/nerdcommenter'; -- comment stuff
