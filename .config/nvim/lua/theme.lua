@@ -1,16 +1,11 @@
--- Set theme and enable transparent background
--- Available themes:
-    -- gruvbox
-    -- onedark
-    -- nord
-    -- catpuccin
-    
+
 vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
-    transparent_background = false
+    transparent_background = true
 })
 
-vim.cmd [[colorscheme catppuccin]]
+-- This sets the colorscheme in the usual way
+-- vim.cmd [[colorscheme gruvbox]]
 
 -- use this to set transparent background if needed
 -- vim.cmd([[
