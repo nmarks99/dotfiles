@@ -57,7 +57,7 @@ case $chosen in
         fi
         ;;
     $lock)
-		betterlockscreen --lock dim
+		betterlockscreen --lock dim --time-format '%l:%H:%S %p'
 		# if [[ -f /usr/bin/i3lock ]]; then
 			# i3lock
 		# elif [[ -f /usr/bin/betterlockscreen ]]; then

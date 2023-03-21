@@ -1,11 +1,10 @@
 
-vim.g.catppuccin_flavour = "macchiato" -- latte, frappe, macchiato, mocha
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
 require("catppuccin").setup({
-    transparent_background = true
+    transparent_background = false
 })
 
--- This sets the colorscheme in the usual way
--- vim.cmd [[colorscheme gruvbox]]
+vim.cmd [[colorscheme catppuccin]]
 
 -- use this to set transparent background if needed
 -- vim.cmd([[

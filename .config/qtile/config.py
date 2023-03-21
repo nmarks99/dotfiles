@@ -1,15 +1,10 @@
-# xinput set-prop 10 325 1 # enable natural scrolling
-# xinput set-prop 10 346 1 # enable tapping
-
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-#  from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 import datetime
 import subprocess
 import os
 from colors import catpuccin
-
 
 
 #################
@@ -18,18 +13,17 @@ from colors import catpuccin
 mod = "mod4"
 terminal = "kitty"
 browser = "firefox"
-POLYBAR_THEME = "forest"
+polybar_theme = "forest"
 
 desktop_wallpaper = "/home/nick/Pictures/wallpaper/milky_way.jpg"
-lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
+lockscreen_wallpaper = "~/Pictures/wallpaper/catpuccin/sound.png"
 
-GAP_SIZE = 5
+WINDOW_GAP_SIZE = 5
 
 
 #################
 ## Keybindings ##
 #################
-
 keys = [
 
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -70,11 +64,11 @@ keys = [
     
     Key([], "XF86AudioLowerVolume",
         lazy.spawn("amixer -D pulse sset Master 2%-"),
-        desc="Lower Volume by 5%"
+        desc="Lower Volume"
     ),
     Key([], "XF86AudioRaiseVolume",
         lazy.spawn("amixer -D pulse sset Master 2%+"),
-        desc="Raise Volume by 5%"
+        desc="Raise Volume"
     ),
     Key([], "XF86AudioMute",
         lazy.spawn("amixer -D pulse set Master toggle"),
@@ -91,31 +85,28 @@ keys = [
 ]
 
 
-
 #################
 #### Groups #####
 #################
 
 groups = [Group(i) for i in "12345"]
 for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key(
-                [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-        ]
-    )
+    keys.extend([
+        # mod + number of group = switch to group
+        Key(
+            [mod],
+            i.name,
+            lazy.group[i.name].toscreen(),
+            desc="Switch to group {}".format(i.name),
+        ),
+        # mod + shift + number of group = switch to & move focused window to group
+        Key(
+            [mod, "shift"],
+            i.name,
+            lazy.window.togroup(i.name, switch_group=True),
+            desc="Switch to & move focused window to group {}".format(i.name),
+        )
+    ])
 
 
 
@@ -129,13 +120,12 @@ layouts = [
         border_focus = catpuccin["teal"],
         border_focus_stack = catpuccin["lavender"],
         border_width=1,
-        margin = GAP_SIZE
+        margin = WINDOW_GAP_SIZE
     ),
     layout.Max(
-        margin = GAP_SIZE
-    ),
+        margin = WINDOW_GAP_SIZE
+    )
 ]
-
 
 
 #########################
@@ -156,8 +146,6 @@ screens = [
         wallpaper_mode="fill",
     )
 ]
-
-
 
 
 #################
@@ -203,7 +191,6 @@ floating_layout = layout.Floating(
 #################
 ##### Rules #####
 #################
-
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -215,7 +202,6 @@ wmname = "qtile"
 #################
 #### Startup ####
 #################
-
 @hook.subscribe.startup_once
 def autostart_once():
     '''
@@ -230,5 +216,5 @@ def autostart_always():
     This function runs every time Qtile is refreshed
     '''
     # restart polybar each time qtile is restarted
-    subprocess.call(["polybar_launch.sh",f"--{POLYBAR_THEME}"])
+    subprocess.call(["polybar_launch.sh",f"--{polybar_theme}"])
 

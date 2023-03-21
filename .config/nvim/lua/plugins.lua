@@ -19,6 +19,7 @@ paq {
     'joshdick/onedark.vim';
     'morhetz/gruvbox';
     'shaunsingh/nord.nvim';
+    "lunarvim/Onedarker.nvim";
     { "catppuccin/nvim", as = "catppuccin" };
 
     -- misc
