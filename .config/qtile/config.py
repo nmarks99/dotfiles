@@ -20,7 +20,7 @@ terminal = "kitty"
 browser = "firefox"
 POLYBAR_THEME = "forest"
 
-desktop_wallpaper = "/home/nick/Pictures/wallpaper/endrollbytamaki.png"
+desktop_wallpaper = "/home/nick/Pictures/wallpaper/milky_way.jpg"
 lockscreen_wallapaper_path = "~/Pictures/wallpaper/catpuccin/sound.png"
 
 GAP_SIZE = 5
@@ -126,9 +126,9 @@ for i in groups:
 layouts = [
     layout.Columns(
         border_normal= catpuccin["base"],
-        border_focus = catpuccin["peach"],
+        border_focus = catpuccin["teal"],
         border_focus_stack = catpuccin["lavender"],
-        border_width=2,
+        border_width=1,
         margin = GAP_SIZE
     ),
     layout.Max(
@@ -142,41 +142,6 @@ layouts = [
 #### Widgets/Screens ####
 #########################
 
-# Decorations
-#  arrow_right = {
-    #  "decorations": [PowerLineDecoration(path="arrow_right")]
-#  }
-#
-#  arrow_left = {
-    #  "decorations": [PowerLineDecoration(path="arrow_left")]
-#  }
-#
-#  rounded_right = {
-    #  "decorations": [PowerLineDecoration(path="rounded_right")]
-#  }
-#
-#  rounded_left = {
-    #  "decorations": [PowerLineDecoration(path="rounded_left")]
-#  }
-#
-#  slash_back = {
-    #  "decorations": [PowerLineDecoration(path="back_slash")]
-#  }
-#
-#  slash_forward = {
-    #  "decorations": [PowerLineDecoration(path="forward_slash")]
-#  }
-#
-#  border = {
-    #  "decorations": [RectDecoration(
-        #  colour=mauve,
-        #  radius=10,
-        #  filled=True,
-        #  padding_y=4,
-        #  group=True
-    #  )]
-#  }
-
 widget_defaults = dict(
     font="JetBrainsMono",
     fontsize=12,
@@ -185,41 +150,11 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 
-#  def widgets_list():
-    #  widgets_list = [
-        #  widget.Spacer(
-            #  background = catpuccin["crust"],
-            #  length = 8
-        #  ),
-    #  ]
-
-
 screens = [
     Screen(
         wallpaper=desktop_wallpaper,
         wallpaper_mode="fill",
-        #  top=bar.Bar(
-            #  [
-                #  widget.CurrentLayoutIcon(),
-                #  widget.GroupBox(
-                    #  disable_drag = True,
-                #  ),
-                #  widget.Systray(),
-                #  widget.Clock(format="%m-%d-%Y\t%a %I:%M %p"),
-                #  widget.Battery(
-                    #  format="Battery: {percent:2.0%}",
-                    #  font = "Roboto, Regular",
-                    #  forefround = "#ff0000",
-                    #  fontsize = 12,
-                    #  passing = 0
-                #  )
-            #  ],
-            #  24,
-            #  background = catpuccin["mantle"],
-            #  opacity = 0.55,
-            #  margin = GAP_SIZE
-        #  ),
-    ),
+    )
 ]
 
 
@@ -278,7 +213,7 @@ wmname = "qtile"
 
 
 #################
-### Startup ###
+#### Startup ####
 #################
 
 @hook.subscribe.startup_once
@@ -294,19 +229,6 @@ def autostart_always():
     '''
     This function runs every time Qtile is refreshed
     '''
+    # restart polybar each time qtile is restarted
     subprocess.call(["polybar_launch.sh",f"--{POLYBAR_THEME}"])
 
-
-#  @hook.subscribe.startup
-#  def dbus_register():
-    #  id = os.environ.get('DESKTOP_AUTOSTART_ID')
-    #  if not id:
-        #  return
-    #  subprocess.Popen(['dbus-send',
-                      #  '--session',
-                      #  '--print-reply',
-                      #  '--dest=org.gnome.SessionManager',
-                      #  '/org/gnome/SessionManager',
-                      #  'org.gnome.SessionManager.RegisterClient',
-                      #  'string:qtile',
-                      #  'string:' + id])

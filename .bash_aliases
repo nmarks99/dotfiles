@@ -2,9 +2,7 @@ alias start='gio open 2>/dev/null'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias icat="kitty +kitten icat"
 alias map="telnet mapscii.me"
-alias minimize_active_window="xdotool getactivewindow windowminimize"
 alias devs="df -h"
-alias countryfetch="~/.local/bin/countryfetch"
 
 # Replace vim with neovim
 alias vim='nvim'
