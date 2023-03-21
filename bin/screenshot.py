@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Note: Requies imagemagick and xclip
 import subprocess
 import datetime
 
