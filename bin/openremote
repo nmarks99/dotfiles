@@ -1,10 +1,16 @@
 #!/usr/bin/env bash 
-DIR=${PWD##*/}
-MATCH="GitHub"
+END_DIR=${PWD##*/}
+GITHUB_DIR="GitHub"
 
-if [ "$DIR" = "$MATCH" ]; then
-   xdg-open "https://www.github.com" 
+if [ "$END_DIR" = "$GITHUB_DIR" ]; then
+   printf "Opening https://www.github.com"
+   xdg-open "https://www.github.com" 2>/dev/null
+elif [ "$PWD" = "$HOME" ]; then
+   printf "Opening https://github.com/nmarks99/dotfiles"
+   xdg-open "https://github.com/nmarks99/dotfiles" 2>/dev/null
 else
-   xdg-open $(git config remote.origin.url)
+   GIT_URL=$(git config remote.origin.url)
+   printf "Opening $GIT_URL"
+   xdg-open $GIT_URL 2>/dev/null
 fi
 
