@@ -8,7 +8,8 @@ add_newline = true
 # success_symbol = "[➜](bold green)"
 # success_symbol = "[∫](bold purple)"
 # success_symbol = "[🌔λ](bold purple)"
-success_symbol = "[❯](bold purple)"
+# success_symbol = "[❯](bold purple)"
+success_symbol = "[➜](bold purple)"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
