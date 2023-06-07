@@ -1,0 +1,58 @@
+{
+
+
+
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "files.trimTrailingWhitespace": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "none",
+    "editor.minimap.enabled": false,
+    "git.enableSmartCommit": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "jupyter.askForKernelRestart": false,
+    "window.menuBarVisibility": "toggle",
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": false,
+    "editor.inlayHints.enabled": false,
+    "python.analysis.autoImportCompletions": false,
+    "settingsSync.keybindingsPerPlatform": true,
+
+    "rust-analyzer.completion.autoimport.enable": false,
+    "rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
+    "rust-analyzer.checkOnSave.allTargets": false,
+
+    // vim
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "Lua.telemetry.enable": true,
+    "glassit.alpha": 220,
+    "redhat.telemetry.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+
+    // misc
+    "git.confirmSync": false,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font:style=Medium,Regular', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": false
+    },
+    "workbench.colorTheme": "Gruvbox Material Light",
+
+    // c++ format style
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}"
+
+}
