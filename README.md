@@ -1,5 +1,13 @@
 # Linux configuration files and scripts
 
+## Fonts
+On ubuntu, fonts are stored in /usr/share/fonts/ 
+
+Here is are the fonts that are needed for now
+- JetBrainsMono Nerd Font
+- Iosevka Nerd Font
+- Monoid Nerd Font
+
 ## Disable Graphical Boot
 
 ### Gnome on Xorg
