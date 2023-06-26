@@ -1,7 +1,0 @@
-{
-  "inlayHint.enable": false,
-  "snippets.ultisnips.pythonPrompt": false,
-  "rust-analyzer.completion.autoimport.enable": false
-}
-
-

@@ -1,58 +1,21 @@
+require "core"
+
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+
+if custom_init_path then
+  dofile(custom_init_path)
+end
+
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
 require "plugins"
-require "tree"
-require "theme"
-require "barbar"
-require "coc"
--- require "scripts/change_theme"
-
--- general settings 
-vim.opt.compatible = false              -- disable compatibility with old-time vi
-vim.opt.showmatch = true                -- show matching brackets
-vim.opt.ignorecase = true               -- case sensative matching
-vim.opt.hlsearch = true                 -- highlight search results 
-vim.opt.tabstop = 4                     -- number of columns occupied by a tab character
-vim.opt.softtabstop = 4                 -- set multiple spaces as tab stops so <BS> does the right thing
-vim.opt.shiftwidth = 4                  -- width for auto indents
-vim.opt.autoindent = true               -- indent new line same amount as one just typed
-vim.opt.number = true                   -- add line numbers 
-vim.opt.expandtab = true                -- converts tabs to white space
-vim.cmd("filetype plugin indent on")    -- auto-indents based on plugin type
-vim.cmd("set mouse+=a")                 -- enable mouse
-vim.cmd("set wildmode=longest,list")    -- get bash-like tab completions
-vim.cmd("syntax on")                    -- enable syntax highlighting
-vim.opt.termguicolors = true
-
--- Turn off weird space error thing in vim polyglot for python
-vim.g.python_highlight_space_errors = 1
-
--- nerd commenter
-vim.cmd([[
-" " Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" " Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" " Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" " Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
-
-" " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" " Map ++ to call NERD Commenter and use iTerm key bindings 
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
-
-]])
-
-
--- lualine
-require('lualine').setup {
-    options = {
-        icons_enabled = true,
-        theme = auto,
-    }
-}
