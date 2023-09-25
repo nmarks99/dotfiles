@@ -28,7 +28,7 @@ if "-o" or "--output" in args:
             args.pop(i)
 
 if output_name is None:
-    output_name = merged
+    output_name = "merged"
 
 merger = PdfWriter()
 for file in args:
