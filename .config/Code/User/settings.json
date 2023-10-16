@@ -1,7 +1,4 @@
 {
-
-
-
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "files.trimTrailingWhitespace": true,
     "workbench.iconTheme": "vscode-icons",
@@ -20,9 +17,6 @@
     "python.analysis.autoImportCompletions": false,
     "settingsSync.keybindingsPerPlatform": true,
 
-    "rust-analyzer.completion.autoimport.enable": false,
-    "rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
-    "rust-analyzer.checkOnSave.allTargets": false,
 
     // vim
     "vim.easymotion": true,
@@ -43,16 +37,32 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font:style=Medium,Regular', 'monospace', monospace",
     "editor.fontLigatures": true,
     "security.workspace.trust.untrustedFiles": "open",
+
     "[python]": {
         "editor.formatOnType": true
     },
+
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools",
-        "editor.formatOnSave": false
+        "editor.formatOnSave": true
     },
-    "workbench.colorTheme": "Gruvbox Material Light",
+
+    "rust-analyzer.completion.autoimport.enable": false,
+    "rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
+    "rust-analyzer.checkOnSave.allTargets": false,
+
+    "workbench.colorTheme": "Ayu Dark",
 
     // c++ format style
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}"
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+    "idf.espIdfPath": "/home/nick/.esp/esp-idf",
+    "idf.pythonBinPath": "/home/nick/.espressif/python_env/idf5.1_py3.10_env/bin/python",
+    "idf.toolsPath": "/home/nick/.espressif",
+    "idf.customExtraPaths": "/home/nick/.espressif/tools/xtensa-esp32-elf/esp32-2019r1-8.2.0/xtensa-esp32-elf/bin:/home/nick/.espressif/tools/xtensa-esp32s2-elf/esp32s2-dev-4-g3a626e9-8.2.0/xtensa-esp32s2-elf/bin:/home/nick/.espressif/tools/esp32ulp-elf/2.28.51.20170517/esp32ulp-elf-binutils/bin:/home/nick/.espressif/tools/cmake/3.13.4/bin:/home/nick/.espressif/tools/openocd-esp32/v0.10.0-esp32-20190708/openocd-esp32/bin:/home/nick/.espressif/tools/ninja/1.9.0",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/nick/.espressif/tools/openocd-esp32/v0.10.0-esp32-20190708/openocd-esp32/share/openocd/scripts"
+    },
+    "idf.gitPath": "git",
+
 
 }
