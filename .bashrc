@@ -76,10 +76,10 @@ fi
 # Set editor to neovim. vi and vim are aliased to nvim in .bash_aliases
 export EDITOR='nvim'
 
-# setup stuff for nvm (node version manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm node version manager (SLOW)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
@@ -88,18 +88,33 @@ LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 export PATH=$PATH:/usr/local/bin/MiKTeX
 
 # spicetify 
-export SPICETIFY_INSTALL="/home/nick/.spicetify"  
-export PATH="$SPICETIFY_INSTALL:$PATH"
+# export SPICETIFY_INSTALL="/home/nick/.spicetify"
+# export PATH="$SPICETIFY_INSTALL:$PATH"
 
-# ARM tools
+# AVR toolchain
 export PATH="$PATH:/opt/avr8-gnu-toolchain-linux_x86_64/bin"
 
-# ROS
-source /opt/ros/humble/setup.bash
-export PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources
-source ~/rosws/nuws/install/setup.bash
+# ARM toolchain
+export PATH="$PATH:/opt/arm-gnu-toolchain-12.2.mpacbti-rel1-x86_64-arm-none-eabi/bin"
+
+# ROS (SLOW)
+# source /opt/ros/humble/setup.bash
+# export PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources
+# export GZ_VERSION=fortress
+# source ~/rosws/nuws/install/setup.bash
 
 # Install Ruby Gems to ~/.gems
 export GEM_HOME="$HOME/.gems"
 export PATH="$HOME/.gems/bin:$PATH"
 
+# deno javascript runtime
+export DENO_INSTALL="/home/nick/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export OPENAI_API_KEY=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
+
+# ESP toolchain
+export LIBCLANG_PATH="/home/$USER/.rustup/toolchains/esp/xtensa-esp32-elf-clang/esp-16.0.0-20230516/esp-clang/lib"
+export PATH="/home/$USER/.rustup/toolchains/esp/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin:$PATH"
+export PATH="/home/$USER/.rustup/toolchains/esp/xtensa-esp32s2-elf/esp-12.2.0_20230208/xtensa-esp32s2-elf/bin:$PATH"
+export PATH="/home/$USER/.rustup/toolchains/esp/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin:$PATH"
+export PATH="/home/$USER/.rustup/toolchains/esp/riscv32-esp-elf/esp-12.2.0_20230208/riscv32-esp-elf/bin:$PATH"

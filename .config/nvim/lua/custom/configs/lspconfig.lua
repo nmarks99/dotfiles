@@ -7,7 +7,7 @@ local servers = {
   "cssls",
   "clangd",
   "rust_analyzer",
-  "jedi_language_server"
+  "pyright"
 }
 
 for _, lsp in ipairs(servers) do
@@ -20,8 +20,27 @@ end
 -- rust-analyzer
 lspconfig.rust_analyzer.setup({
   filetypes = {"rust"},
-  root_dir = lspconfig.util.root_pattern("Cargo.toml")
+  root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+  settings = {
+    ['rust-analyzer'] = {
+      allFeatures = true,
+      diagnostics = {
+        enabled = true,
+        disabled = {"unresolved-proc-macro"},
+        enableExperimental = true,
+      },
+    }
+  }
 })
+
+-- Clangd
+lspconfig.clangd.setup {
+  on_attach = function(client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client,bufnr)
+  end,
+  capabilities = capabilities,
+}
 
 -- Without the loop, you would have to manually set up each LSP 
 -- 
