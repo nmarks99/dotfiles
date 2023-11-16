@@ -9,7 +9,3 @@ picom -b &
 
 # Start udiskie to automount USB
 udiskie &
-
-# Toggle wifi on and off to get it to work for some reason
-nmcli radio wifi off
-nmcli radio wifi on
