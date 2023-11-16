@@ -1,17 +1,37 @@
-# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
-
-# Inserts a blank line between shell prompts
 add_newline = true
 
-[character]
-# success_symbol = "[➜](bold green)"
-# success_symbol = "[∫](bold purple)"
-# success_symbol = "[🌔λ](bold purple)"
-# success_symbol = "[❯](bold purple)"
-success_symbol = "[➜](bold purple)"
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$env_var\
+$python\
+$sudo\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$os\
+$container\
+$shell\
+$character"""
 
-# Disable the package module, hiding it from the prompt completely
+[character]
+success_symbol = '[➜](bold purple)'
+
 [package]
 disabled = true
 
+[python]
+# only show virtual env
+# format='[${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format='[${pyenv_prefix}(\($virtualenv\) )]($style)'
