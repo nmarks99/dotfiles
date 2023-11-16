@@ -5,11 +5,10 @@ local lspconfig = require "lspconfig"
 local servers = {
   "html",
   "cssls",
-  "clangd",
-  "rust_analyzer",
-  "pyright"
+  "jedi_language_server"
 }
 
+-- attach all servers that don't have specific settings
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
@@ -19,37 +18,17 @@ end
 
 -- rust-analyzer
 lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
   filetypes = {"rust"},
-  root_dir = lspconfig.util.root_pattern("Cargo.toml"),
-  settings = {
-    ['rust-analyzer'] = {
-      allFeatures = true,
-      diagnostics = {
-        enabled = true,
-        disabled = {"unresolved-proc-macro"},
-        enableExperimental = true,
-      },
-    }
-  }
+  root_dir = lspconfig.util.root_pattern("Cargo.toml")
 })
 
--- Clangd
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client,bufnr)
-  end,
-  capabilities = capabilities,
-}
+-- clangd
+lspconfig.clangd.setup({
+  filetypes = {"c", "cpp", "h", "hpp"},
+  on_attach = on_attach,
+  capabilities = capabilities
+})
 
--- Without the loop, you would have to manually set up each LSP 
--- 
--- lspconfig.html.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
---
--- lspconfig.cssls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
--- }
+
