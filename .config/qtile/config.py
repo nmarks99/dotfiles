@@ -169,12 +169,27 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-
 screens = [
     Screen(
         wallpaper=desktop_wallpaper,
         wallpaper_mode="fill",
-    )
+        top=bar.Bar(
+            [
+                widget.CurrentLayout(),
+                widget.GroupBox(),
+                widget.Prompt(),
+                widget.Spacer(bar.STRETCH),
+                # widget.WindowName(),
+                widget.Clock(format="%m-%d-%Y %a\t %I:%M:%S %p\t"),
+                widget.Battery(format="󰁺 {percent:2.0%}\t"),
+                widget.Net(interface="wlp115s0"),
+                widget.QuickExit(),
+            ],
+            24,
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            ),
+        )
 ]
 
 
