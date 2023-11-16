@@ -173,21 +173,23 @@ screens = [
     Screen(
         wallpaper=desktop_wallpaper,
         wallpaper_mode="fill",
+
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                # widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.Spacer(bar.STRETCH),
-                widget.Clock(format="%a %m-%d-%Y  |  %I:%M:%S %p\t"),
+                widget.Clock(format="%a %m-%d-%Y"),
+                widget.Sep(padding=10),
+                widget.Clock(format="%I:%M:%S %p"),
                 widget.Spacer(bar.STRETCH),
-                widget.Battery(format="󰁺 {percent:2.0%}  |  "),
-                widget.Wlan(interface="wlp115s0", format="     |  ", disconnected_message="󰖪     |  "),
-                widget.QuickExit(),
+                widget.Battery(format="󰁺 {percent:2.0%} "),
+                widget.Sep(padding=10),
+                widget.Wlan(interface="wlp115s0", format=" \t", disconnected_message="󰖪 \t",),
+                # widget.QuickExit(),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
             ),
         )
 ]
