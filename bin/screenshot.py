@@ -2,8 +2,10 @@
 # Note: Requies imagemagick and xclip
 import subprocess
 import datetime
+import os
 
-screenshot_dir_path = "/home/nick/Pictures/Screenshots/"
+# Screenshots stored in ~/Pictures/Screenshots
+screenshot_dir_path = f"{os.path.expanduser('~')}/Pictures/Screenshots/"
 
 # Create a timestamp
 stamp = datetime.datetime.now()
@@ -15,7 +17,7 @@ subprocess.call(["import",name])
 
 # Get the most recent screenshot
 result = subprocess.Popen(
-    ["ls -t /home/nick/Pictures/Screenshots/*.png | head -1"],
+    [f"ls -t {screenshot_dir_path}*.png | head -1"],
     shell=True,
     stdout=subprocess.PIPE
 )
