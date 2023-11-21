@@ -1,9 +1,15 @@
 #!/usr/bin/env bash 
 
+if ! [ -x "$(command -v xsct)" ]; then
+  echo 'Error: xsct is not installed.' >&2
+  echo 'Repo: https://github.com/faf0/sct'
+  exit 1
+fi
+
 if [[ $1 == "on" ]]; then
-    sct 3500;
+    xsct 3500;
 elif [[ $1 == "off" ]]; then
-    sct;
+    xsct off;
 else
     printf "Unknown command $1"
 fi

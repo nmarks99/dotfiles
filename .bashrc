@@ -3,8 +3,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# symlink to Kitty binaries
+# Add ~/bin and ~/.local/bin to path
+export PATH="$PATH:~/bin"
 export PATH="$PATH:~/.local/bin"
+
+# symlink to Kitty binaries
 ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
 . "$HOME/.cargo/env"
 
