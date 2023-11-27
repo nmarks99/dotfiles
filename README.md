@@ -1,5 +1,7 @@
 # Linux configuration files and scripts
 
+- Guide for tracking dotfiles with git [https://www.atlassian.com/git/tutorials/dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
+
 ## Fonts
 On ubuntu, fonts are stored in /usr/share/fonts/ 
 
