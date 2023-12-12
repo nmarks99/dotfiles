@@ -21,7 +21,7 @@ else
 fi
 
 # Add platformio binaries to PATH
-export PATH="$PATH:/local/nmarks/.platformio/penv/bin/"
+export PATH="$PATH:~/.platformio/penv/bin/"
 
 # Set default editor to neovim
 export EDITOR='nvim'
@@ -29,18 +29,15 @@ export EDITOR='nvim'
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
-# uncrustify
-export UNCRUSTIFY_CONFIG="/local/nmarks/.config/uncrustify/uncrustify.cfg"
-
 # Setup EPICS environment:
 # - EPICS_HOST_ARCH = rhel9-x86_64
 # - CPATH set to find EPICS base and synApps libraries
-source /local/nmarks/.epics_env/env_epics.bash
+source /home/beams/NMARKS/.epics_env/env_epics.bash
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # local python modules
 export PYTHONPATH="$PYTHONPATH:/local/nmarks/.local/lib/local-pymodules/"
