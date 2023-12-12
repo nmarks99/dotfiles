@@ -7,8 +7,7 @@ fi
 export PATH="$PATH:~/bin"
 export PATH="$PATH:~/.local/bin"
 
-# symlink to Kitty binaries
-ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
+# Soruce cargo env
 . "$HOME/.cargo/env"
 
 # Starship prompt
@@ -34,10 +33,7 @@ LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 # - CPATH set to find EPICS base and synApps libraries
 source /home/beams/NMARKS/.epics_env/env_epics.bash
 
-# pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-# local python modules
-export PYTHONPATH="$PYTHONPATH:/local/nmarks/.local/lib/local-pymodules/"
+# nvm (slow!)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
