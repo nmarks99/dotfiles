@@ -14,3 +14,8 @@ if [[ $TERM == "xterm-kitty" ]]; then
     alias kitty-ssh="kitty +kitten ssh"
     alias icat="kitty +kitten icat"
 fi
+
+# dserv synapps directories
+alias s4dserv="cd /net/s4dserv/xorApps/epics/synApps_6_2_1/"
+alias s8iddserv="cd /net/s8iddserv/xorApps/epics/synApps_6_2_1/"
+alias s20dserv="cd /net/s20dserv/xorApps/epics/synApps_6_2_1/"
