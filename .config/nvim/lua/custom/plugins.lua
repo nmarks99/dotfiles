@@ -12,7 +12,6 @@ local plugins = {
     opts = {
       ensure_installed = {
         "rust-analyzer",
-        "jedi-langauge-server",
         "clangd",
       }
     }

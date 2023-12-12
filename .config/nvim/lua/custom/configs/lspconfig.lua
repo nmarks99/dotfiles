@@ -3,9 +3,8 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
-  "html",
-  "cssls",
-  "jedi_language_server"
+    "html",
+    "cssls",
 }
 
 -- attach all servers that don't have specific settings
@@ -29,6 +28,24 @@ lspconfig.clangd.setup({
   filetypes = {"c", "cpp", "h", "hpp"},
   on_attach = on_attach,
   capabilities = capabilities
+})
+
+lspconfig.pyright.setup ({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {"pyright-langserver", "--stdio"},
+    filetypes = {"python"},
+    single_file_support = true,
+    settings = {
+        python = {
+            analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = false,
+                typeCheckingMode = "on",
+            },
+        },
+    },
 })
 
 
