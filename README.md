@@ -1,6 +1,8 @@
 # Linux configuration files and scripts
 
+## Git
 - Guide for tracking dotfiles with git [https://www.atlassian.com/git/tutorials/dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
+- Nice git log alias: `alias.lg "log -10 --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"`
 
 ## Fonts
 On ubuntu, fonts are stored in /usr/share/fonts/ 
