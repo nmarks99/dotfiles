@@ -75,11 +75,11 @@ keys = [
         desc="Toggle mute"
     ),
     Key([], "XF86MonBrightnessUp",
-        lazy.spawn("brightnessctl s 2%+"),
+        lazy.spawn("brightnessctl s 10%+"),
         desc='Increase brightness'
     ),
     Key([], "XF86MonBrightnessDown",
-        lazy.spawn("brightnessctl s 2%-"),
+        lazy.spawn("brightnessctl s 10%-"),
         desc='Decrease brightness'
     )
 ]
