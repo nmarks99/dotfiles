@@ -1,6 +1,4 @@
-return {
-
-    -- NOTE: First, some plugins that don't require any configuration
+local plugins = {
 
     -- Git related plugins
     'tpope/vim-fugitive',
@@ -9,8 +7,6 @@ return {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
-
-    -- buffer line for files at the top
     {
     'akinsho/bufferline.nvim',
     version = "*",
@@ -28,7 +24,6 @@ return {
 	'williamboman/mason-lspconfig.nvim',
 
 	-- Useful status updates for LSP
-	-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 	{ 'j-hui/fidget.nvim', opts = {} },
 
 	-- Additional lua configuration, makes nvim stuff amazing!
@@ -71,7 +66,7 @@ return {
     -- See `:help lualine.txt`
     opts = {
 	options = {
-	    icons_enabled = false,
+	    icons_enabled = true,
 	    theme = 'onedark',
 	    component_separators = '|',
 	    section_separators = '',
@@ -105,4 +100,25 @@ return {
     },
     build = ':TSUpdate',
     },
+    {
+	'goolord/alpha-nvim',
+	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	config = function ()
+	    require'alpha'.setup(require'alpha.themes.startify'.config)
+	end
+    },
 }
+
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  }
+end
+vim.opt.rtp:prepend(lazypath)
+require('lazy').setup(plugins, {})
