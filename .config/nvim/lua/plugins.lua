@@ -57,7 +57,7 @@ local plugins = {
     },
 
     -- Useful plugin to show you pending keybinds.
-    { 'folke/which-key.nvim', opts = {} },
+    -- { 'folke/which-key.nvim', opts = {} },
 
     -- status line at the bottom
     {
@@ -65,7 +65,7 @@ local plugins = {
 	opts = {
 	    options = {
 		icons_enabled = true,
-		theme = 'onedark',
+		theme = auto,
 		component_separators = '|',
 		section_separators = '',
 	    },
