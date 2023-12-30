@@ -3,6 +3,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias icat="kitty +kitten icat"
 alias map="telnet mapscii.me"
 alias devs="df -h"
+alias clock="tty-clock -s -t -S -b -c -C 4"
 
 # source ESP-IDF tools
 alias get_idf='source $HOME/.esp/esp-idf/export.sh'
