@@ -7,6 +7,9 @@ local plugins = {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
+    -- catpuccin theme
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
     -- bufferline tabs at the top
     {
 	'akinsho/bufferline.nvim',
@@ -52,15 +55,6 @@ local plugins = {
 
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim', opts = {} },
-
-    {
-	-- Theme inspired by Atom
-	'navarasu/onedark.nvim',
-	priority = 1000,
-	config = function()
-	    vim.cmd.colorscheme 'onedark'
-	end,
-    },
 
     -- status line at the bottom
     {
