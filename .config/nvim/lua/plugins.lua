@@ -7,6 +7,9 @@ local plugins = {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
+    -- comment
+    'preservim/nerdcommenter',
+
     -- catpuccin theme
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
@@ -80,9 +83,6 @@ local plugins = {
 	    }
 	},
     },
-
-    -- TODO: replace with nerd-commenter
-    { 'numToStr/Comment.nvim', opts = {} },
 
     -- Highlight, edit, and navigate code
     {

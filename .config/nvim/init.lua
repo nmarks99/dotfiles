@@ -279,7 +279,9 @@ cmp.setup {
   },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
@@ -313,7 +315,16 @@ cmp.setup {
   },
 }
 
--- Enable theme
+-- nerd commenter
+vim.g.NERDCompactSexyComs = 1
+vim.g.NERDCommentEmptyLines = 1
+vim.g.NERDTrimTrailingWhitespace = 1
+vim.g.NERDToggleCheckAllLines = 1
+vim.g.NERDSpaceDelims = 1
+vim.keymap.set({'n', 'v'}, '++', [[<plug>NERDCommenterToggle]], {})
+vim.keymap.set({'n', 'v'}, '<leader>/', [[<plug>NERDCommenterToggle]], {})
+
+-- Catppuccin theme
 require("catppuccin").setup({
     flavour = "mocha",
     transparent_background = true
