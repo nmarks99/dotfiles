@@ -3,29 +3,39 @@
 -- ==============================
 -- See `:help vim.o
 
-vim.g.mapleader = ' ' -- Set <space> as the leader key
+vim.g.mapleader = ' '           -- Set <space> as the leader key
 vim.g.maplocalleader = ' '
-vim.o.hlsearch = false -- Set highlight on search
-vim.wo.number = true -- Make line numbers default
-vim.o.mouse = 'a' -- Enable mouse mode
-vim.o.clipboard = 'unnamedplus' -- Sync clipboard
-vim.o.breakindent = true -- Enable break indent
-vim.o.undofile = true -- Save undo history
-vim.o.ignorecase = true -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.smartcase = true
-vim.wo.signcolumn = 'yes' -- Keep signcolumn on by default
-vim.o.updatetime = 250 -- Decrease update time
+vim.o.hlsearch = false          -- Set highlight on search
+vim.wo.number = true            -- enable line numbers
+vim.o.mouse = 'a'               -- Enable mouse mode
+vim.o.clipboard = 'unnamedplus' -- Sync clipboard
+vim.o.breakindent = true        -- Enable break indent
+vim.o.undofile = true           -- Save undo history
+vim.o.ignorecase = true         -- Case-insensitive search
+vim.wo.signcolumn = 'yes'       -- Keep signcolumn on by default
+vim.o.updatetime = 250          -- Decrease update time
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
-vim.opt.shiftwidth = 4 -- default shiftwidth, vim-slueth may change this
+vim.opt.shiftwidth = 4          -- vim-slueth may change this
+TRANSPARENT = false             -- Enable transparency (doesn't work yet for plugins)
+
+if TRANSPARENT then
+  vim.cmd([[
+  autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+  autocmd vimenter * hi NonText guibg=NONE ctermbg=NONE
+  autocmd vimenter * hi NvimTreeNormal guibg=NONE ctermbg=NONE
+  autocmd vimenter * hi NormalFloat guibg=NONE ctermbg=NONE
+  ]])
+end
 
 
 -- ==============================
 --            Keymaps
 -- ==============================
 -- See `:help vim.keymap.set()`
---
+
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -57,7 +67,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require("plugins")
 
 -- bufferline
-require("bufferline").setup{}
+require("bufferline").setup{
+  options = {
+    offsets = {
+        {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            highlight = "Directory",
+            separator = true -- use a "true" to enable the default, or set your own character
+        },
+    },
+    hover = {
+      enabled = true,
+      delay = 200,
+      reveal = {'close'}
+    },
+  },
+}
+vim.keymap.set('n', '<A-.>', [[:BufferLineCycleNext<CR>]], {})
+vim.keymap.set('n', '<A-,>', [[:BufferLineCyclePrev<CR>]], {})
 
 -- Setup neovim lua configuration
 require('neodev').setup()
@@ -284,3 +312,8 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+
+
+
+

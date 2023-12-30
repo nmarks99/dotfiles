@@ -7,99 +7,99 @@ local plugins = {
     -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
 
+    -- bufferline tabs at the top
     {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons'
+	'akinsho/bufferline.nvim',
+	version = "*",
+	dependencies = 'nvim-tree/nvim-web-devicons',
     },
 
+    -- File explorer tree
     { "nvim-tree/nvim-tree.lua" },
 
-    {
     -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-	-- Automatically install LSPs to stdpath for neovim
-	{ 'williamboman/mason.nvim', config = true },
-	'williamboman/mason-lspconfig.nvim',
-
-	-- Useful status updates for LSP
-	{ 'j-hui/fidget.nvim', opts = {} },
-
-	-- Additional lua configuration, makes nvim stuff amazing!
-	'folke/neodev.nvim',
-    },
-    },
-
     {
-    -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = {
-	-- Snippet Engine & its associated nvim-cmp source
-	'L3MON4D3/LuaSnip',
-	'saadparwaiz1/cmp_luasnip',
+	'neovim/nvim-lspconfig',
+	dependencies = {
+	    -- Automatically install LSPs to stdpath for neovim
+	    { 'williamboman/mason.nvim', config = true },
+	    'williamboman/mason-lspconfig.nvim',
 
-	-- Adds LSP completion capabilities
-	'hrsh7th/cmp-nvim-lsp',
-	'hrsh7th/cmp-path',
+	    -- Useful status updates for LSP
+	    { 'j-hui/fidget.nvim', opts = {} },
 
-	-- Adds a number of user-friendly snippets
-	'rafamadriz/friendly-snippets',
+	    -- Additional lua configuration, makes nvim stuff amazing!
+	    'folke/neodev.nvim',
+	},
     },
+
+    -- Autocompletion
+    {
+	'hrsh7th/nvim-cmp',
+	dependencies = {
+	    -- Snippet Engine & its associated nvim-cmp source
+	    'L3MON4D3/LuaSnip',
+	    'saadparwaiz1/cmp_luasnip',
+
+	    -- Adds LSP completion capabilities
+	    'hrsh7th/cmp-nvim-lsp',
+	    'hrsh7th/cmp-path',
+
+	    -- Adds a number of user-friendly snippets
+	    'rafamadriz/friendly-snippets',
+	},
     },
 
     -- Useful plugin to show you pending keybinds.
     { 'folke/which-key.nvim', opts = {} },
 
     {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
-    priority = 1000,
-    config = function()
-	vim.cmd.colorscheme 'onedark'
-    end,
+	-- Theme inspired by Atom
+	'navarasu/onedark.nvim',
+	priority = 1000,
+	config = function()
+	    vim.cmd.colorscheme 'onedark'
+	end,
     },
 
+    -- status line at the bottom
     {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-	options = {
-	    icons_enabled = true,
-	    theme = 'onedark',
-	    component_separators = '|',
-	    section_separators = '',
+	'nvim-lualine/lualine.nvim',
+	opts = {
+	    options = {
+		icons_enabled = true,
+		theme = 'onedark',
+		component_separators = '|',
+		section_separators = '',
+	    },
 	},
     },
+
+    -- indentation guides (see :help ibl)
+    {
+	'lukas-reineke/indent-blankline.nvim',
+	main = 'ibl',
+	opts = {
+	    scope = {
+		show_start = true,
+		show_end = true,
+	    }
+	},
     },
 
-    {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {
-	scope = {
-	    show_start = true,
-	    show_end = true,
-	}
-    },
-    },
+    -- TODO: replace with nerd-commenter
+    { 'numToStr/Comment.nvim', opts = {} },
 
-    {
-    'numToStr/Comment.nvim',
-    opts = {}
-    },
-
-    {
     -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-	'nvim-treesitter/nvim-treesitter-textobjects',
+    {
+	'nvim-treesitter/nvim-treesitter',
+	dependencies = {
+	    'nvim-treesitter/nvim-treesitter-textobjects',
+	},
+	build = ':TSUpdate',
     },
-    build = ':TSUpdate',
-    },
+
+    -- start page for neovim
     {
 	'goolord/alpha-nvim',
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -109,6 +109,7 @@ local plugins = {
     },
 }
 
+-- ensure lazy.nvim is installed, call setup with above table
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
