@@ -1,5 +1,7 @@
 local plugins = {
 
+    "dstein64/vim-startuptime",
+
     -- Git related plugins
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
@@ -12,6 +14,19 @@ local plugins = {
 
     -- catpuccin theme
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+    -- ayu theme
+    { "Shatur/neovim-ayu", priority = 1000 },
+
+    {
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+	-- your configuration comes here
+	-- or leave it empty to use the default settings
+	-- refer to the configuration section below
+      }
+    },
 
     -- bufferline tabs at the top
     {
@@ -65,7 +80,7 @@ local plugins = {
 	opts = {
 	    options = {
 		icons_enabled = true,
-		theme = auto,
+		theme = "auto",
 		component_separators = '|',
 		section_separators = '',
 	    },

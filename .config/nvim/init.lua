@@ -2,8 +2,7 @@
 --            Options
 -- ==============================
 -- See `:help vim.o
-
-vim.g.mapleader = ' '           -- Set <space> as the leader key
+vim.g.mapleader = ' ' -- Set <space> as the leader key
 vim.g.maplocalleader = ' '
 vim.o.smartcase = true
 vim.o.hlsearch = false          -- Set highlight on search
@@ -18,8 +17,9 @@ vim.o.updatetime = 250          -- Decrease update time
 vim.o.timeoutlen = 300
 vim.o.termguicolors = true
 vim.o.completeopt = 'menuone,noselect'
-vim.opt.shiftwidth = 4          -- vim-slueth may change this
-TRANSPARENT = false             -- Enable transparency for basic themes
+vim.opt.shiftwidth = 4 -- vim-slueth may change this
+TRANSPARENT = false    -- Enable transparency for basic themes
+theme = "catppuccin"
 
 if TRANSPARENT then
   vim.cmd([[
@@ -30,6 +30,11 @@ if TRANSPARENT then
   ]])
 end
 
+-- Set filetype=conf for .cmd files on Linux
+if package.config:sub(1, 1) == '/' then
+  vim.cmd([[autocmd BufNewFile,BufRead *.cmd set filetype=conf]])
+  vim.cmd([[autocmd BufNewFile,BufRead *.db set filetype=conf]])
+end
 
 -- ==============================
 --            Keymaps
@@ -67,20 +72,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require("plugins")
 
 -- bufferline
-require("bufferline").setup{
+require("bufferline").setup {
   options = {
     offsets = {
-        {
-            filetype = "NvimTree",
-            text = "File Explorer",
-            highlight = "Directory",
-            separator = true -- use a "true" to enable the default, or set your own character
-        },
+      {
+        filetype = "NvimTree",
+        text = "File Explorer",
+        highlight = "Directory",
+        separator = true     -- use a "true" to enable the default, or set your own character
+      },
     },
     hover = {
       enabled = true,
       delay = 200,
-      reveal = {'close'}
+      reveal = { 'close' }
     },
   },
 }
@@ -105,16 +110,15 @@ vim.defer_fn(function()
     ensure_installed = {
       'c',
       'cpp',
-      'go',
-      'lua',
       'python',
+      'lua',
       'rust',
-      'tsx',
+      'bash',
+      'go',
+      'vim',
+      'vimdoc',
       'javascript',
       'typescript',
-      'vimdoc',
-      'vim',
-      'bash'
     },
 
     auto_install = false,
@@ -205,6 +209,7 @@ local servers = {
   clangd = {},
   rust_analyzer = {},
   jedi_language_server = {},
+  ruff_lsp = {},
 
   lua_ls = {
     Lua = {
@@ -302,13 +307,24 @@ vim.g.NERDCommentEmptyLines = 1
 vim.g.NERDTrimTrailingWhitespace = 1
 vim.g.NERDToggleCheckAllLines = 1
 vim.g.NERDSpaceDelims = 1
-vim.keymap.set({'n', 'v'}, '++', [[<plug>NERDCommenterToggle]], {})
-vim.keymap.set({'n', 'v'}, '<leader>/', [[<plug>NERDCommenterToggle]], {})
+vim.keymap.set({ 'n', 'v' }, '++', [[<plug>NERDCommenterToggle]], {})
+vim.keymap.set({ 'n', 'v' }, '<leader>/', [[<plug>NERDCommenterToggle]], {})
 
--- Catppuccin theme
-require("catppuccin").setup({
+
+-- todo comments
+require("todo-comments").setup();
+
+-- set theme
+if theme == "catppuccin" then
+  require("catppuccin").setup({
     flavour = "mocha",
-    transparent_background = true
-})
-vim.cmd.colorscheme "catppuccin"
-
+    transparent_background = false
+  })
+  vim.cmd.colorscheme "catppuccin"
+elseif theme == "ayu" then
+  require('ayu').setup({
+    mirage = false,
+    overrides = {},
+  })
+  vim.cmd.colorscheme "ayu-dark"
+end
