@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Cura
+Icon=/home/nick/.local/share/applications/icons/cura_icons.png
+Exec=/home/nick/.local/bin/Cura.AppImage

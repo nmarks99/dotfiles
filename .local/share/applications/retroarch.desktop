@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=RetroArch
+Icon=/home/nick/.local/programs/RetroArch/retroarch_icon.png
+Exec=/home/nick/.local/bin/RetroArch
