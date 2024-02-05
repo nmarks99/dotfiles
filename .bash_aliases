@@ -4,9 +4,7 @@ alias icat="kitty +kitten icat"
 alias map="telnet mapscii.me"
 alias devs="df -h"
 alias clock="tty-clock -s -t -S -b -c -C 4"
-
-# source ESP-IDF tools
-alias get_idf='source $HOME/.esp/esp-idf/export.sh'
+alias newest="ls -Art | tail -n 1"
 
 # Replace vim with neovim
 alias vim='nvim'
@@ -18,4 +16,3 @@ if [[ $TERM == "xterm-kitty" ]]; then
     alias kitty-ssh="kitty +kitten ssh"
     alias icat="kitty +kitten icat"
 fi
-
