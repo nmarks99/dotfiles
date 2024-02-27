@@ -1,3 +1,9 @@
+cd; # initially starts in /home/beams0/NMARKS?
+
+# directories: drwxrwsr-x 
+# files: .rw-rw-r--
+umask 2
+
 # Alias definitions in ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -7,11 +13,10 @@ fi
 export PATH="$PATH:~/bin"
 export PATH="$PATH:~/.local/bin"
 
-# Soruce cargo env
+# Source cargo env
 . "$HOME/.cargo/env"
 
-# Starship prompt
-# if [ "$TERM" != "linux" ] && [ "$TERM" != "xterm-256color" ]; then
+# Prompt
 if [ "$TERM" != "linux" ]; then
     eval "$(starship init bash)"
     # source ~/.config/pureline/pureline ~/.config/pureline/pureline.conf
@@ -28,12 +33,7 @@ export EDITOR='nvim'
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
-# Setup EPICS environment:
-# - EPICS_HOST_ARCH = rhel9-x86_64
-# - CPATH set to find EPICS base and synApps libraries
-source /home/beams/NMARKS/.epics_env/env_epics.bash
-
-# nvm (slow!)
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Setup EPICS environment
+# CPATH set to find EPICS base and synApps libraries
+export EPICS_HOST_ARCH="rhel9-x86_64"
+# source /home/beams/NMARKS/.epics_env/env_epics.bash

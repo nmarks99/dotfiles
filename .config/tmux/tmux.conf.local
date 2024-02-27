@@ -4,6 +4,7 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+set -g repeat-time 0
 
 # -- session creation ----------------------------------------------------------
 
