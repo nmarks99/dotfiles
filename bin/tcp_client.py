@@ -39,7 +39,7 @@ else:
     exit()
 
 # Connect the client, get input and read response until user enters "quit"
-with TCPClient(host="127.0.0.1", port=12345) as client:
+with TCPClient(host=HOST, port=PORT) as client:
     while True:
         msg = input(">> ")
         if msg == "quit":
