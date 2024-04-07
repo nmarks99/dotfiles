@@ -34,6 +34,18 @@ that causes the braille display program `brltty` which is also preinstalled
 to break it. To fix it you should just be able to do `sudo apt remove brltty`.
 See this stack exchange post: [https://askubuntu.com/questions/1403705/dev-ttyusb0-not-present-in-ubuntu-22-04](https://askubuntu.com/questions/1403705/dev-ttyusb0-not-present-in-ubuntu-22-04)
 
+## Fix bluetooth controller missing
+[https://askubuntu.com/questions/1486697/cannot-toggle-bluetooth-at-all-in-ubuntu-22-04](https://askubuntu.com/questions/1486697/cannot-toggle-bluetooth-at-all-in-ubuntu-22-04)
+
+`sudo uname -r`
+
+`sudo apt install --reinstall linux-modules-extra-6.5.0-26-generic`
+
+`sudo modprobe -v btusb`
+
+`sudo modprobe -r btusb && sleep 10 && sudo modprobe btusb reset=1`
+
+
 ## Misc Settings/Tweaks
 
 ### Touchpad fix in Qtile

@@ -5,6 +5,7 @@ fi
 
 # Add ~/bin to path
 PATH="$HOME/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
 
 # Set editor to neovim
 export EDITOR='nvim'
