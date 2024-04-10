@@ -27,6 +27,9 @@ exec gnome-session
 ### Qtile
 `exec qtile start`
 
+## Fix clangd missing C++ headers
+On Ubuntu 22.04, clangd in neovim couldn't find the system headers.
+`sudo apt install libstdc++-12-dev` seemed to fix the issue.
 
 ## Fix CH341 Drivers
 This driver should be already installed on ubuntu 22.04, but there is a bug
@@ -46,28 +49,25 @@ See this stack exchange post: [https://askubuntu.com/questions/1403705/dev-ttyus
 `sudo modprobe -r btusb && sleep 10 && sudo modprobe btusb reset=1`
 
 
-## Misc Settings/Tweaks
-
-### Touchpad fix in Qtile
+## Touchpad fix in Qtile
 When using Qtile, for some reason the touchpad does not use natural 
 scrolling and does not allow tapping. To enable this with libinput, 
 I edited /usr/share/X11/xorg.conf.d/40-libinput.conf.
 
-### Firefox scroll speed
+## Firefox scroll speed
 - Type about:config
 - Search for `mousewheel.default.delta_multiplier_y` and decrease it
 
-### DNS
+## DNS
 Apparently Google DNS server is faster: [https://developers.google.com/speed/public-dns](https://developers.google.com/speed/public-dns)
 
-### Make audio better
+## Make audio better
 Improve audio with this [https://medium.com/@gamunu/enable-high-quality-audio-on-linux-6f16f3fe7e1f](https://medium.com/@gamunu/enable-high-quality-audio-on-linux-6f16f3fe7e1f)
 
-
-### VirtualBox with UEFI Secure Boot
+## VirtualBox with UEFI Secure Boot
 This [link](https://stackoverflow.com/questions/61248315/sign-virtual-box-modules-vboxdrv-vboxnetflt-vboxnetadp-vboxpci-centos-8) is helpful to sign the vbox modules.
 
-### Use xrandr to mirror display
+## Use xrandr to mirror display
 Have not tried this but this link seems helpful: https://unix.stackexchange.com/questions/371793/how-to-duplicate-desktop-in-linux-with-xrandr
 
 ## Programs
