@@ -31,18 +31,22 @@ fi
 if [ -f "$HOME/.cargo/env" ]; then
     source "$HOME/.cargo/env"
 fi
+
 # Add platformio binaries to PATH
 # TODO: reinstall. currently points to /local/nmarks
 # export PATH="$PATH:~/.platformio/penv/bin/"
 
-# Setup EPICS environment
 if [[ $(hostname) == *ymir-ln* ]]; then
+    # Setup EPICS environment
     export EPICS_HOST_ARCH="rhel9-x86_64"
+    
+    # directory for local python modules
+    export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/local_python_modules/"
 fi
 
-# NOTE: this shouldn't be needed, use "bear -- make"
-# to generete compile_commands.json
 ## CPATH set to find EPICS base and synApps libraries
+# this shouldn't be needed, use "bear -- make"
+# to generete compile_commands.json
 # source /home/beams/NMARKS/.epics_env/env_epics.bash
 
 # SPDLOG C++ library logging level
