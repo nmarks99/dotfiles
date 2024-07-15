@@ -4,7 +4,7 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 alias newest="ls -Art | tail -n 1"
 alias libcheck="ldconfig -p | grep ${1}"
 alias pyenvinit='source ~/.pyenv/pyenv_init.bash'
-alias clipboard='xclip -selection clipboard'
+alias clipboard='tr -d "\n" | xclip -selection clipboard'
 
 if [[ $TERM == "xterm-kitty" ]]; then
     if [[ $(hostname) == *ymir-ln* ]]; then
