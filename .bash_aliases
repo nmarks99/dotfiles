@@ -6,10 +6,15 @@ alias libcheck="ldconfig -p | grep ${1}"
 alias pyenvinit='source ~/.pyenv/pyenv_init.bash'
 alias clipboard='tr -d "\n" | xclip -selection clipboard'
 
+if which "lsd" &> /dev/null; then
+    alias ls="lsd"
+else
+    alias ls='ls --color'
+fi
+
 if [[ $TERM == "xterm-kitty" ]]; then
     if [[ $(hostname) == *ymir-ln* ]]; then
         alias cat="bat --paging=never"
-        alias ls="lsd"
         alias icat="kitty +kitten icat"
     fi
 fi

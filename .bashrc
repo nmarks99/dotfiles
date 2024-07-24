@@ -2,32 +2,27 @@
 # files: .rw-rw-r--
 umask 2
 
+# Add ~/bin and ~/.local/bin to path
+export PATH="$PATH:~/bin"
+export PATH="$PATH:~/.local/bin"
+
 # Alias definitions in ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
 # Set font colors for directories displayed with ls
-LS_COLORS=$LS_COLORS:'di=0;33:';export LS_COLORS
+LS_COLORS=$LS_COLORS:'di=0;35:';export LS_COLORS
 
-# Set default editor to neovim
-export EDITOR='nvim'
-
-# Add ~/bin and ~/.local/bin to path
-export PATH="$PATH:~/bin"
-export PATH="$PATH:~/.local/bin"
+# Set default editor to neovim if the binary is available
+export EDITOR=$(which nvim &> /dev/null && echo nvim || echo vi)
 
 # Prompt
-# Use starship if GLIBC version is compatible
-glibc_version=$(ldd --version | head -n 1 | awk '{print $NF}')
-req_version="2.29"
-if [ "$(printf '%s\n' "$glibc_version" "$req_version" | sort -V | head -n 1)" == "$req_version" ]; then
+if which "starship" &> /dev/null; then
     eval "$(starship init bash)"
-else 
-    alias ls='ls --color'
+else
     export PROMPT_DIRTRIM=3
-    PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[33m\]\h\[\e[m\]:\w]\\$"
-    # source ~/.config/pureline/pureline ~/.config/pureline/pureline.conf
+    PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
 fi
 
 # Source cargo env
