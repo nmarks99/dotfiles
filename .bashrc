@@ -21,17 +21,20 @@ export EDITOR=$(which nvim &> /dev/null && echo nvim || echo vi)
 export TERM_PROGRAM=$(ps -o comm= -p $PPID)
 
 # Prompt
-if [[ ${TERM_PROGRAM} == "kitty" || ${TERM_PROGRAM} == "zellij" ]]; then
+export USE_STARSHIP="${USE_STARSHIP:-true}"
+case $TERM_PROGRAM in
+  "kitty" | "sshd" | "zellij" )
     if command -v starship &> /dev/null && [ "$USE_STARSHIP" = "true" ]; then
         eval "$(starship init bash)"
     else
         export PROMPT_DIRTRIM=3
         PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
     fi
-else
+    ;;
+*)
     export PROMPT_DIRTRIM=3
     PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
-fi
+esac
 
 # Source cargo env
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
