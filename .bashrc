@@ -22,7 +22,7 @@ export TERM_PROGRAM=$(ps -o comm= -p $PPID)
 
 # Prompt
 if [[ ${TERM_PROGRAM} == "kitty" || ${TERM_PROGRAM} == "zellij" ]]; then
-    if which "starship" &> /dev/null; then
+    if command -v starship &> /dev/null && [ "$USE_STARSHIP" = "true" ]; then
         eval "$(starship init bash)"
     else
         export PROMPT_DIRTRIM=3
