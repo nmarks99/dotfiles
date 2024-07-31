@@ -14,36 +14,45 @@ fi
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:';export LS_COLORS
 
-# Set default editor to neovim if the binary is available
+# Set default editor to neovim if nvim binary is available
 export EDITOR=$(which nvim &> /dev/null && echo nvim || echo vi)
 
+# Determine what terminal emulator we are running
+export TERM_PROGRAM=$(ps -o comm= -p $PPID)
+
 # Prompt
-if which "starship" &> /dev/null; then
-    eval "$(starship init bash)"
+if [[ ${TERM_PROGRAM} == "kitty" || ${TERM_PROGRAM} == "zellij" ]]; then
+    if which "starship" &> /dev/null; then
+        eval "$(starship init bash)"
+    else
+        export PROMPT_DIRTRIM=3
+        PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
+    fi
 else
     export PROMPT_DIRTRIM=3
     PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
 fi
 
 # Source cargo env
-if [ -f "$HOME/.cargo/env" ]; then
-    source "$HOME/.cargo/env"
-fi
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # Add platformio binaries to PATH
-export PATH="$PATH:~/.platformio/penv/bin/"
+if [ -d "$HOME/.platformio" ]; then
+    export PATH="$PATH:~/.platformio/penv/bin/"
+fi
 
-# directory for local python modules
-export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/local_python_modules/"
+# add directory for local python modules to PATH
+if [ -d "$HOME/.local/lib/local_python_modules" ]; then
+    export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/local_python_modules/"
+fi
 
-# ymir-ln specific configuration
-if [[ $(hostname) == *ymir-ln* ]]; then
-    export EPICS_HOST_ARCH="rhel9-x86_64"
-
-    ## CPATH set to find EPICS base and synApps libraries
-    # this shouldn't be needed, use "bear -- make"
-    # to generete compile_commands.json
-    # source /home/beams/NMARKS/.epics_env/env_epics.bash
+# set EPICS_HOST_ARCH based on redhat version
+if [ -f /etc/redhat-release ]; then
+    release_info=$(cat /etc/redhat-release)
+    major_version=$(echo $release_info | grep -oE '[0-9]+' | head -n 1)
+    if [ -n "$major_version" ]; then
+        export EPICS_HOST_ARCH="rhel${major_version}-x86_64"
+    fi
 fi
 
 # SPDLOG C++ library logging level
