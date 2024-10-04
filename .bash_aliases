@@ -6,19 +6,18 @@ alias libcheck="ldconfig -p | grep ${1}"
 alias clipboard='tr -d "\n" | xclip -selection clipboard'
 # alias pyenvinit='source ~/.pyenv/pyenv_init.bash'
 
-if which "lsd" &> /dev/null; then
-    alias ls="lsd"
-else
-    alias ls='ls --color'
-fi
+alias ls='ls --color'
 
-if which "bat" &> /dev/null; then
-    alias cat="bat --paging=never"
-fi
-
-if [[ $TERM == "xterm-kitty" ]]; then
-    if [[ $(hostname) == *ymir-ln* ]]; then
-        alias ssh="kitty +kitten ssh"
-        alias icat="kitty +kitten icat"
+# TODO: make this better...
+if [ -f /etc/redhat-release ]; then
+    release_info=$(cat /etc/redhat-release)
+    major_version=$(echo $release_info | grep -oE '[0-9]+' | head -n 1)
+    if [ "$major_version" -gt 8 ]; then
+        if which "lsd" &> /dev/null; then
+            alias ls="lsd"
+        fi
+        if which "bat" &> /dev/null; then
+            alias cat="bat --paging=never"
+        fi
     fi
 fi
