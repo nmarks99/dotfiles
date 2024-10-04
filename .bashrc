@@ -49,6 +49,11 @@ if [ -d "$HOME/.local/lib/local_python_modules" ]; then
     export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/local_python_modules/"
 fi
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # set EPICS_HOST_ARCH based on redhat version
 if [ -f /etc/redhat-release ]; then
     release_info=$(cat /etc/redhat-release)
@@ -56,6 +61,7 @@ if [ -f /etc/redhat-release ]; then
     if [ -n "$major_version" ]; then
         export EPICS_HOST_ARCH="rhel${major_version}-x86_64"
     fi
+    # echo "EPICS_HOST_ARCH=${EPICS_HOST_ARCH}"
 fi
 
 # SPDLOG C++ library logging level

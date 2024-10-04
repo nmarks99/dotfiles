@@ -1,55 +1,56 @@
-.rwxr-xr-x nmarks aesbc 5.1 MB Wed Oct 11 13:26:48 2023 bat
-drwx------ nmarks aesbc 4.0 KB Thu Jan 11 10:34:47 2024 clang
-.rwxr-xr-x nmarks aesbc 212 B  Mon Dec 18 11:29:53 2023 docutils
-.rwxr-xr-x nmarks aesbc 216 B  Fri Jan  5 11:38:58 2024 f2py
-drwx------ nmarks aesbc 4.0 KB Wed Jul 31 08:48:33 2024 firefox
-drwx------ nmarks aesbc 4.0 KB Tue Jul 30 16:11:49 2024 firefox.bak
+.rw-rw-r-- nmarks aesbc   0 B  Fri Sep 27 10:22:21 2024 local_binaries
+drwx------ nmarks aesbc 4.0 KB Fri Sep 27 08:40:23 2024 firefox
+drwx------ nmarks aesbc 4.0 KB Wed Sep 18 14:37:33 2024 firefox.bak
+.rwxrwxr-x nmarks aesbc 222 B  Thu Sep  5 15:54:00 2024 pyserial-ports
+.rwxrwxr-x nmarks aesbc 220 B  Thu Sep  5 15:54:00 2024 pyserial-miniterm
 .rwxrwxr-x nmarks aesbc 208 B  Mon Jul 29 15:12:41 2024 flask
-.rwxr-xr-x nmarks aesbc 217 B  Fri Jan  5 11:39:01 2024 fonttools
-.rwx------ nmarks aesbc  41 MB Mon Jan 29 10:06:32 2024 gh
-.rwxr-xr-x nmarks aesbc 221 B  Tue Dec 12 09:07:53 2023 jedi-language-server
-.rwx--x--x nmarks aesbc  39 MB Wed Jul 17 10:36:49 2024 KeePassXC
-.rwxr-xr-x nmarks aesbc 206 B  Mon Dec 18 11:29:55 2023 keyring
-lrwxrwxrwx nmarks aesbc  46 B  Tue Dec 12 09:54:12 2023 kitten ⇒ /home/beams/NMARKS/.local/kitty.app/bin/kitten
-lrwxrwxrwx nmarks aesbc  45 B  Tue Dec 12 09:54:12 2023 kitty ⇒ /home/beams/NMARKS/.local/kitty.app/bin/kitty
-.rw-rw-r-- nmarks aesbc   0 B  Wed Jul 31 09:24:18 2024 local_binaries
-.rwxr-xr-x nmarks aesbc 3.7 MB Tue Jul 23 10:31:05 2024 lsd
-.rwxr-xr-x nmarks aesbc 216 B  Mon Dec 18 11:29:54 2023 markdown-it
-lrwxrwxrwx nmarks aesbc  54 B  Tue Dec 12 09:53:02 2023 node ⇒ /home/beams/NMARKS/.nvm/versions/node/v21.4.0/bin/node
-lrwxrwxrwx nmarks aesbc  27 B  Tue Jan  2 09:20:32 2024 nvim ⇒ nvim-linux64-0.9.5/bin/nvim
-drwx------ nmarks aesbc 4.0 KB Tue Jan  2 09:16:22 2024 nvim-linux64-0.9.5
-.rwxr-xr-x nmarks aesbc 214 B  Mon Dec 18 11:29:51 2023 pkginfo
-.rwxr-xr-x nmarks aesbc 214 B  Fri Jan  5 11:39:01 2024 pyftmerge
-.rwxr-xr-x nmarks aesbc 215 B  Fri Jan  5 11:39:01 2024 pyftsubset
-.rwxr-xr-x nmarks aesbc 211 B  Mon Dec 18 11:29:51 2023 pygmentize
-.rwxr-xr-x nmarks aesbc 219 B  Thu Dec 14 14:18:46 2023 pylupdate5
-.rwxrwxr-x nmarks aesbc 224 B  Wed Apr 24 15:56:15 2024 pymodbus.console
-.rwxrwxr-x nmarks aesbc 222 B  Wed Apr 24 15:56:15 2024 pymodbus.server
-.rwxrwxr-x nmarks aesbc 229 B  Wed Apr 24 13:29:22 2024 pymodbus.simulator
-.rwxr-xr-x nmarks aesbc 221 B  Mon Dec 18 11:28:25 2023 pyproject-build
-.rwxr-xr-x nmarks aesbc 215 B  Thu Dec 14 14:18:46 2023 pyrcc5
-.rwxr-xr-x nmarks aesbc 214 B  Thu Dec 14 14:18:46 2023 pyuic5
-.rwxr-xr-x nmarks aesbc 598 B  Mon Dec 18 11:29:52 2023 rst2html.py
-.rwxr-xr-x nmarks aesbc 720 B  Mon Dec 18 11:29:52 2023 rst2html4.py
-.rwxr-xr-x nmarks aesbc 1.0 KB Mon Dec 18 11:29:52 2023 rst2html5.py
-.rwxr-xr-x nmarks aesbc 797 B  Mon Dec 18 11:29:52 2023 rst2latex.py
-.rwxr-xr-x nmarks aesbc 620 B  Mon Dec 18 11:29:52 2023 rst2man.py
-.rwxr-xr-x nmarks aesbc 786 B  Mon Dec 18 11:29:52 2023 rst2odt.py
-.rwxr-xr-x nmarks aesbc 592 B  Mon Dec 18 11:29:52 2023 rst2odt_prepstyles.py
-.rwxr-xr-x nmarks aesbc 605 B  Mon Dec 18 11:29:52 2023 rst2pseudoxml.py
-.rwxr-xr-x nmarks aesbc 641 B  Mon Dec 18 11:29:52 2023 rst2s5.py
-.rwxr-xr-x nmarks aesbc 877 B  Mon Dec 18 11:29:52 2023 rst2xetex.py
-.rwxr-xr-x nmarks aesbc 606 B  Mon Dec 18 11:29:52 2023 rst2xml.py
-.rwxr-xr-x nmarks aesbc 674 B  Mon Dec 18 11:29:52 2023 rstpep2html.py
-.rwx--x--x nmarks aesbc  16 MB Wed Dec 20 16:22:59 2023 ruff
 .rwxr-xr-x nmarks aesbc 2.5 MB Wed Jul 24 10:39:13 2024 sd
+.rwxr-xr-x nmarks aesbc 3.7 MB Tue Jul 23 10:31:05 2024 lsd
+.rwx--x--x nmarks aesbc  39 MB Wed Jul 17 10:36:49 2024 KeePassXC
 .rwxr-xr-x nmarks aesbc 9.6 MB Wed May 15 12:11:09 2024 starship
-.rw-rw-r-- nmarks aesbc 104 KB Tue May  7 12:56:03 2024 strace_output.txt
-.rwxrwxr-x nmarks aesbc 209 B  Wed Apr 24 15:56:14 2024 tabulate
-.rwx------ nmarks aesbc 101 MB Thu Feb  1 14:57:45 2024 teams-for-linux-1.4.6.AppImage
-.rwxrwxr-x nmarks aesbc 212 B  Wed Apr 17 13:00:26 2024 textual
-.rwxr-xr-x nmarks aesbc 212 B  Fri Jan  5 11:39:01 2024 ttx
-.rwxr-xr-x nmarks aesbc 209 B  Mon Dec 18 11:29:55 2023 twine
 lrwxrwxrwx nmarks aesbc  25 B  Tue May  7 14:49:51 2024 vscode ⇒ VSCode-linux-x64/bin/code
 drwxr-xr-x nmarks aesbc 4.0 KB Tue May  7 14:48:54 2024 VSCode-linux-x64
+.rwxrwxr-x nmarks aesbc 222 B  Wed Apr 24 15:56:15 2024 pymodbus.server
+.rwxrwxr-x nmarks aesbc 224 B  Wed Apr 24 15:56:15 2024 pymodbus.console
+.rwxrwxr-x nmarks aesbc 209 B  Wed Apr 24 15:56:14 2024 tabulate
+.rwxrwxr-x nmarks aesbc 229 B  Wed Apr 24 13:29:22 2024 pymodbus.simulator
 .rwxr-xr-x nmarks aesbc  30 MB Thu Apr 18 09:00:26 2024 zellij
+.rwxrwxr-x nmarks aesbc 212 B  Wed Apr 17 13:00:26 2024 textual
+.rwx------ nmarks aesbc 101 MB Thu Feb  1 14:57:45 2024 teams-for-linux-1.4.6.AppImage
+.rwx------ nmarks aesbc  41 MB Mon Jan 29 10:06:32 2024 gh
+drwx------ nmarks aesbc 4.0 KB Thu Jan 11 10:34:47 2024 clang
+.rwxr-xr-x nmarks aesbc 212 B  Fri Jan  5 11:39:01 2024 ttx
+.rwxr-xr-x nmarks aesbc 215 B  Fri Jan  5 11:39:01 2024 pyftsubset
+.rwxr-xr-x nmarks aesbc 214 B  Fri Jan  5 11:39:01 2024 pyftmerge
+.rwxr-xr-x nmarks aesbc 217 B  Fri Jan  5 11:39:01 2024 fonttools
+.rwxr-xr-x nmarks aesbc 216 B  Fri Jan  5 11:38:58 2024 f2py
+lrwxrwxrwx nmarks aesbc  27 B  Tue Jan  2 09:20:32 2024 nvim ⇒ nvim-linux64-0.9.5/bin/nvim
+drwx------ nmarks aesbc 4.0 KB Tue Jan  2 09:16:22 2024 nvim-linux64-0.9.5
+.rwx--x--x nmarks aesbc  16 MB Wed Dec 20 16:22:59 2023 ruff
+.rwxr-xr-x nmarks aesbc 209 B  Mon Dec 18 11:29:55 2023 twine
+.rwxr-xr-x nmarks aesbc 206 B  Mon Dec 18 11:29:55 2023 keyring
+.rwxr-xr-x nmarks aesbc 216 B  Mon Dec 18 11:29:54 2023 markdown-it
+.rwxr-xr-x nmarks aesbc 212 B  Mon Dec 18 11:29:53 2023 docutils
+.rwxr-xr-x nmarks aesbc 674 B  Mon Dec 18 11:29:52 2023 rstpep2html.py
+.rwxr-xr-x nmarks aesbc 606 B  Mon Dec 18 11:29:52 2023 rst2xml.py
+.rwxr-xr-x nmarks aesbc 877 B  Mon Dec 18 11:29:52 2023 rst2xetex.py
+.rwxr-xr-x nmarks aesbc 641 B  Mon Dec 18 11:29:52 2023 rst2s5.py
+.rwxr-xr-x nmarks aesbc 605 B  Mon Dec 18 11:29:52 2023 rst2pseudoxml.py
+.rwxr-xr-x nmarks aesbc 592 B  Mon Dec 18 11:29:52 2023 rst2odt_prepstyles.py
+.rwxr-xr-x nmarks aesbc 786 B  Mon Dec 18 11:29:52 2023 rst2odt.py
+.rwxr-xr-x nmarks aesbc 620 B  Mon Dec 18 11:29:52 2023 rst2man.py
+.rwxr-xr-x nmarks aesbc 797 B  Mon Dec 18 11:29:52 2023 rst2latex.py
+.rwxr-xr-x nmarks aesbc 1.0 KB Mon Dec 18 11:29:52 2023 rst2html5.py
+.rwxr-xr-x nmarks aesbc 720 B  Mon Dec 18 11:29:52 2023 rst2html4.py
+.rwxr-xr-x nmarks aesbc 598 B  Mon Dec 18 11:29:52 2023 rst2html.py
+.rwxr-xr-x nmarks aesbc 214 B  Mon Dec 18 11:29:51 2023 pkginfo
+.rwxr-xr-x nmarks aesbc 211 B  Mon Dec 18 11:29:51 2023 pygmentize
+.rwxr-xr-x nmarks aesbc 221 B  Mon Dec 18 11:28:25 2023 pyproject-build
+.rwxr-xr-x nmarks aesbc 214 B  Thu Dec 14 14:18:46 2023 pyuic5
+.rwxr-xr-x nmarks aesbc 215 B  Thu Dec 14 14:18:46 2023 pyrcc5
+.rwxr-xr-x nmarks aesbc 219 B  Thu Dec 14 14:18:46 2023 pylupdate5
+lrwxrwxrwx nmarks aesbc  46 B  Tue Dec 12 09:54:12 2023 kitten ⇒ /home/beams/NMARKS/.local/kitty.app/bin/kitten
+lrwxrwxrwx nmarks aesbc  45 B  Tue Dec 12 09:54:12 2023 kitty ⇒ /home/beams/NMARKS/.local/kitty.app/bin/kitty
+lrwxrwxrwx nmarks aesbc  54 B  Tue Dec 12 09:53:02 2023 node ⇒ /home/beams/NMARKS/.nvm/versions/node/v21.4.0/bin/node
+.rwxr-xr-x nmarks aesbc 221 B  Tue Dec 12 09:07:53 2023 jedi-language-server
+.rwxr-xr-x nmarks aesbc 5.1 MB Wed Oct 11 13:26:48 2023 bat
