@@ -1,5 +1,9 @@
 # Linux configuration files and scripts
 
+- **NEW:** using GNU stow to manage dotfiles. Simply run `stow <package>` to
+symlink a package to its correct location. E.g. `stow kitty` will create a
+symbolic link in ~/.config/kitty/kitty.conf -> dotfiles/kitty/.config/kitty/kitty.conf
+
 - Guide for tracking dotfiles with git [https://www.atlassian.com/git/tutorials/dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## Fonts
