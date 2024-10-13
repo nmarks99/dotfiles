@@ -1,16 +1,22 @@
 #!/usr/bin/env bash 
 END_DIR=${PWD##*/}
-GITHUB_DIR="GitHub"
 
-if [ "$END_DIR" = "$GITHUB_DIR" ]; then
-   printf "Opening https://www.github.com"
-   xdg-open "https://www.github.com" 2>/dev/null
-elif [ "$PWD" = "$HOME" ]; then
+# TODO:
+# - work with repos cloned with ssh or https
+# - check if firefox is already running?
+
+if [ "$PWD" = "$HOME" ]; then
    printf "Opening https://github.com/nmarks99/dotfiles"
    xdg-open "https://github.com/nmarks99/dotfiles" 2>/dev/null
-else
-   GIT_URL=$(git config remote.origin.url)
-   printf "Opening $GIT_URL"
-   xdg-open $GIT_URL 2>/dev/null
 fi
-
+# # Get the SSH URL of the remote repository
+# ssh_url=$(git remote get-url origin)
+#
+# # Extract the owner and repository name from the SSH URL
+# repo_info=$(echo $ssh_url | sed 's/.*:\(.*\)\.git/\1/')
+#
+# # Construct the HTTPS URL
+# https_url="https://github.com/$repo_info.git"
+#
+# # Print the HTTPS URL
+# echo $https_url

@@ -8,7 +8,7 @@ PATH="$HOME/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
 # Set editor to neovim
-export EDITOR='nvim'
+export EDITOR='/home/nick/.local/bin/nvim'
 
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
@@ -35,6 +35,17 @@ fi
 # Raspberry Pi Pico SDK
 export PICO_SDK_PATH="/home/nick/.local/pico-dev/pico-sdk"
 
+# rbenv
+eval "$(~/.rbenv/bin/rbenv init - --no-rehash bash)"
+
+# nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Install Ruby Gems to ~/.gems
+export GEM_HOME="$HOME/.gems"
+export PATH="$HOME/.gems/bin:$PATH"
+
 # Source ROS2 Iron
 # source /opt/ros/iron/setup.bash
 # export PYTHONWARNINGS=ignore:::setuptools.command.install,ignore:::setuptools.command.easy_install,ignore:::pkg_resources
@@ -43,7 +54,3 @@ export PICO_SDK_PATH="/home/nick/.local/pico-dev/pico-sdk"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Install Ruby Gems to ~/.gems
-# export GEM_HOME="$HOME/.gems"
-# export PATH="$HOME/.gems/bin:$PATH"
