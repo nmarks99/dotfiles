@@ -1,13 +1,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 # Alias definitions in ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Add ~/bin to path
+## Add ~/bin and ~/.local/bin to path
 PATH="$HOME/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
@@ -20,19 +19,9 @@ LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Add platformio core to path
-# export PATH=$PATH:~/.platformio/penv/bin
-
-# EPICS bin path
-# export PATH=$PATH:/usr/local/epics/bin
-
-# Prompt
-# Source pureline or starship configuration
-# Don't use pureline in vscode integrated terminal or default gnome terminal
-#if [[ $TERM != "linux" ]]; then
-#    # source ~/.config/pureline/pureline ~/.config/pureline/pureline.conf
-#    eval "$(starship init bash)"
-#fi
+## Prompt
+# source ~/.config/pureline/pureline ~/.config/pureline/pureline.conf
+# eval "$(starship init bash)"
 git_branch() {
   git rev-parse --is-inside-work-tree &>/dev/null
   if [ $? -eq 0 ]; then
@@ -44,15 +33,22 @@ git_branch() {
     fi
   fi
 }
+# this will work without additional fonts or dependencies except for git:
 PS1='\[\e[1;34m\]┌──(\[\e[1;36m\]\u\[\e[1;34m\]@\[\e[1;35m\]\h\[\e[1;34m\])-[\[\e[1;37m\]\w\[\e[1;34m\]]\[\e[1;33m\]$(git_branch)\n\[\e[1;34m\]└─$\[\e[0m\] '
 
-# Source cargo 
+# Platformio
+# export PATH=$PATH:~/.platformio/penv/bin
+
+# EPICS binaries
+# export PATH=$PATH:/usr/local/epics/bin
+
+# cargo 
 # . "$HOME/.cargo/env"
 
 # Raspberry Pi Pico SDK
 # export PICO_SDK_PATH="/home/nick/.local/pico-dev/pico-sdk"
 
-# rbenv
+# rbenv (ruby environment manager)
 # eval "$(~/.rbenv/bin/rbenv init - --no-rehash bash)"
 
 # nvm
