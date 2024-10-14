@@ -23,13 +23,26 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 # source ~/.config/pureline/pureline ~/.config/pureline/pureline.conf
 # eval "$(starship init bash)"
 # PS1='[\u@\h \W]\$ ' # simple
+#
+
+# if ! git diff --quiet --cached; then
+    # echo -e " \x1b[36m($branch+)\x1b[0m"  # Cyan if there are staged changes
+#
+# # Check if there are changes that have been committed but not yet pushed
+# elif git log @{u}..HEAD > /dev/null 2>&1; then
+    # echo -e " \x1b[33m($branch^)\x1b[0m"  # Yellow if there are commits not pushed
 git_branch() {
     if [ -d ".git/" ]; then
         branch=$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null)
-        if [ -n "$(git status --porcelain)" ]; then
-            echo -e " \x1b[33m($branch*)\x1b[0m" # Red if the working directory is dirty
+
+        # if git log @{u}..HEAD > /dev/null 2>&1; then
+            # echo -e " \x1b[33m($branch^)\x1b[0m" # still need to push
+        if ! git diff --quiet --cached; then
+            echo -e " \x1b[33m($branch+)\x1b[0m" # staged changes
+        elif [ -n "$(git status --porcelain)" ]; then
+            echo -e " \x1b[31m($branch*)\x1b[0m" # working directory is dirty
         else
-            echo -e " \x1b[32m($branch)\x1b[0m"  # Green if the working directory is clean
+            echo -e " \x1b[32m($branch)\x1b[0m"  # working directory is clean
         fi
     fi
 }
