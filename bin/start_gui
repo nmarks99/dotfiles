@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+PROG=${1:-Hyprland}
+
+if [[ $PROG == "gnome" ]]; then
+    export MOZ_ENABLE_WAYLAND=1
+    export QT_QPA_PLATFORM=wayland 
+    export XDG_SESSION_TYPE=wayland
+    dbus-run-session gnome-session
+elif [[ $PROG == "Hyprland" ]]; then
+    Hyprland
+fi
