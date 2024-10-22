@@ -2,9 +2,7 @@
 
 export PROMPT_DIRTRIM=3
 
-# change color of "@" symbol when in ssh session
-export TERM_PROGRAM=$(ps -o comm= -p $PPID)
-if [[ $TERM_PROGRAM == "sshd" ]]; then
+if [[ -n "$SSH_CONNECTION" || -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
     PS1='\[\e[1;34m\]┌──(\[\e[1;36m\]\u\[\e[1;33m\]@\[\e[1;35m\]\h\[\e[1;34m\])-[\[\e[1;37m\]\w\[\e[1;34m\]]\[\e[1;33m\]\n\[\e[1;34m\]└─$\[\e[0m\] '
 else
     PS1='\[\e[1;34m\]┌──(\[\e[1;36m\]\u\[\e[1;34m\]@\[\e[1;35m\]\h\[\e[1;34m\])-[\[\e[1;37m\]\w\[\e[1;34m\]]\[\e[1;33m\]\n\[\e[1;34m\]└─$\[\e[0m\] '
