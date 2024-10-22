@@ -17,26 +17,8 @@ LS_COLORS=$LS_COLORS:'di=0;35:';export LS_COLORS
 # Set default editor to neovim if nvim binary is available
 export EDITOR=$(which nvim &> /dev/null && echo nvim || echo vi)
 
-# Determine what terminal emulator we are running
-export TERM_PROGRAM=$(ps -o comm= -p $PPID)
-
 # Prompt
-export USE_STARSHIP="${USE_STARSHIP:-false}"
-case $TERM_PROGRAM in
-  "kitty" | "sshd" | "zellij" )
-    if command -v starship &> /dev/null && [ "$USE_STARSHIP" = "true" ]; then
-        eval "$(starship init bash)"
-    else
-        export PROMPT_DIRTRIM=3
-        # PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
-        PS1='\[\e[1;34m\]┌──(\[\e[1;36m\]\u\[\e[1;34m\]@\[\e[1;35m\]\h\[\e[1;34m\])-[\[\e[1;37m\]\w\[\e[1;34m\]]\[\e[1;33m\]\n\[\e[1;34m\]└─$\[\e[0m\] '
-    fi
-    ;;
-*)
-    export PROMPT_DIRTRIM=3
-    # PS1="\[\e[34m\]\u\[\e[m\]@\[\e[37m\]\h\[\e[m\]:\[\e[32m\]\w\[\e[m\]\\$"
-    PS1='\[\e[1;34m\]┌──(\[\e[1;36m\]\u\[\e[1;34m\]@\[\e[1;35m\]\h\[\e[1;34m\])-[\[\e[1;37m\]\w\[\e[1;34m\]]\[\e[1;33m\]\n\[\e[1;34m\]└─$\[\e[0m\] '
-esac
+source ~/.bash_prompt
 
 # Source cargo env
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
