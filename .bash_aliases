@@ -1,7 +1,8 @@
 alias start='gio open 2>/dev/null'
 alias firefox="${HOME}/.local/bin/firefox/firefox"
 alias dotfiles="/usr/bin/git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}"
-alias newest="ls -Art | tail -n 1"
+# alias newest="ls -Art | tail -n 1"
+alias newest="ls -lt | head -1 | awk '{print \$NF}'"
 alias libcheck="ldconfig -p | grep ${1}"
 alias clipboard='tr -d "\n" | xclip -selection clipboard'
 # alias pyenvinit='source ~/.pyenv/pyenv_init.bash'
