@@ -1,7 +1,7 @@
-@import "mocha.css"; 
+@import "nord.css"; 
 
 * {
-    font-family: "MesloLGS Nerd Font Mono Bold";
+    font-family: "JetBrainsMono Nerd Font Bold";
     font-size: 16px;
     min-height: 0;
     font-weight: bold;
@@ -9,11 +9,11 @@
 
 window#waybar {
     background: transparent;
-    background-color: @crust;
-    color: @overlay0;
+    background-color: @nord0;
+    color: @nord5;
     transition-property: background-color;
     transition-duration: 0.1s;
-    border-bottom: 1px solid @overlay1;
+    border-bottom: 1px solid @nord2;
 }
 
 #window {
@@ -30,24 +30,25 @@ button {
 
 button:hover {
     background: inherit;
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @nord6;
+    border-top: 2px solid @nord6;
 }
 
 #workspaces button {
     padding: 0 4px;
+    color: @nord2;
 }
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @rosewater;
-    border-top: 2px solid @rosewater;
+    color: @nord6;
+    border-top: 2px solid @nord7;
 }
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @nord9;
+    border-top: 2px solid @nord9;
 }
 
 #workspaces button.urgent {
@@ -75,24 +76,24 @@ button:hover {
   padding-right: 4px;
 }
 
-#clock {
-    color: @maroon;
-    border-bottom: 2px solid @maroon;
-}
-
-#clock.date {
-    color: @mauve;
-    border-bottom: 2px solid @mauve;
+#network {
+    color: @nord8;
+    border-bottom: 2px solid @nord8;
 }
 
 #pulseaudio {
-    color: @blue;
-    border-bottom: 2px solid @blue;
+    color: @nord7;
+    border-bottom: 2px solid @nord7;
 }
 
-#network {
-    color: @yellow;
-    border-bottom: 2px solid @yellow;
+#clock {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
+}
+
+#clock.date {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
 }
 
 #idle_inhibitor {
@@ -120,7 +121,7 @@ button:hover {
 }
 
 #custom-vpn {
-    color: @lavender;
+    color: @nord6;
     border-radius: 15px;
     padding-left: 6px;
     padding-right: 6px;
