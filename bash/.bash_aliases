@@ -7,6 +7,11 @@ alias clipboard='tr -d "\n" | xclip -selection clipboard'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
+if [[ $XDG_CURRENT_DESKTOP == "Hyprland" ]]; then
+    alias set_display_normal="hyprctl keyword monitor eDP-1,preferred,auto,1.0,transform,0"
+    alias set_display_inverted="hyprctl keyword monitor eDP-1,preferred,auto,1.0,transform,2"
+fi
+
 # Replace vim with neovim
 alias vim='nvim'
 
