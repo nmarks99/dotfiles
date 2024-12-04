@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+SAVE_PATH="${HOME}/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+grim -g "$(slurp -w 0)" - | tee $SAVE_PATH | wl-copy
+echo $SAVE_PATH
