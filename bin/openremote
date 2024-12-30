@@ -1,22 +1,39 @@
-#!/usr/bin/env bash 
-END_DIR=${PWD##*/}
+#!/usr/bin/env python3
 
-# TODO:
-# - work with repos cloned with ssh or https
-# - check if firefox is already running?
+import subprocess
+import re
 
-if [ "$PWD" = "$HOME" ]; then
-   printf "Opening https://github.com/nmarks99/dotfiles"
-   xdg-open "https://github.com/nmarks99/dotfiles" 2>/dev/null
-fi
-# # Get the SSH URL of the remote repository
-# ssh_url=$(git remote get-url origin)
-#
-# # Extract the owner and repository name from the SSH URL
-# repo_info=$(echo $ssh_url | sed 's/.*:\(.*\)\.git/\1/')
-#
-# # Construct the HTTPS URL
-# https_url="https://github.com/$repo_info.git"
-#
-# # Print the HTTPS URL
-# echo $https_url
+BROWSER="firefox"
+
+result = subprocess.run(
+    ["git", "remote", "-v"],
+    capture_output=True,
+    text=True,
+    check=False
+)
+if result.stderr:
+    raise RuntimeError(result.stderr)
+
+if "https" in result.stdout:
+    print("openremote with repo cloned with https not supported")
+    exit()
+
+pattern = r"git@github\.com:([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)\.git"
+matches = re.search(pattern, result.stdout)
+repo = ""
+if matches:
+    try:
+        repo = matches.group(1)
+    except:
+        print("Failed to match repository name")
+        raise
+
+if repo:
+    url = f"https://github.com/{repo}"
+    print(f"Opening {url} in {BROWSER}")
+    result = subprocess.run(
+        [BROWSER, url],
+        capture_output=True,
+        text=True,
+        check=True
+    )

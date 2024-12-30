@@ -41,14 +41,14 @@ button:hover {
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @nord6;
-    border-top: 2px solid @nord7;
+    color: @nord4;
+    border-top: 2px solid @nord4;
 }
 
 #workspaces button.active {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @nord9;
-    border-top: 2px solid @nord9;
+    color: @nord4;
+    border-top: 2px solid @nord4;
 }
 
 #workspaces button.urgent {
@@ -77,18 +77,28 @@ button:hover {
 }
 
 #network {
-    color: @nord8;
-    border-bottom: 2px solid @nord8;
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
 }
 
 #pulseaudio {
-    color: @nord7;
-    border-bottom: 2px solid @nord7;
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
+}
+
+#cpu {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
+}
+
+#temperature {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
 }
 
 #clock {
-    color: @nord4;
-    border-bottom: 2px solid @nord4;
+    color: @nord6;
+    border-bottom: 2px solid @nord6;
 }
 
 #clock.date {
@@ -106,8 +116,8 @@ button:hover {
 }
 
 #battery {
-    color: @green;
-    border-bottom: 2px solid @green;
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
