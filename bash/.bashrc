@@ -12,6 +12,8 @@ PATH="$HOME/.local/bin:$PATH"
 
 # Set editor to neovim
 export EDITOR='nvim'
+export NVIM_THEME="rose-pine"
+export NVIM_TRANSPARENCY="false"
 
 # Set font colors for directories displayed with ls
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
@@ -30,5 +32,12 @@ PATH="/usr/local/go/bin:$PATH"
 # pipx
 eval "$(register-python-argcomplete pipx)"
 
-# Add platformio binaries to path
-PATH="$HOME/.platformio/penv/bin:$PATH"
+# EPICS
+export EPICS_BASE=/usr/local/epics/base-7.0.8.1
+export EPICS_HOST_ARCH=$(${EPICS_BASE}/startup/EpicsHostArch)
+export PATH=${EPICS_BASE}/bin/${EPICS_HOST_ARCH}:${PATH}
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
