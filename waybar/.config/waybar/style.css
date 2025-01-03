@@ -96,6 +96,11 @@ button:hover {
     border-bottom: 2px solid @nord4;
 }
 
+#disk {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
+}
+
 #clock {
     color: @nord6;
     border-bottom: 2px solid @nord6;

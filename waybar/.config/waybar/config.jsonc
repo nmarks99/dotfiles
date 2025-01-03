@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "cpu", "temperature", "battery", "clock"],
+  "modules-right": ["network", "pulseaudio", "cpu", "temperature", "disk", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#d8dee9'>   </span>{:%a %d %I:%M}",
     "format-alt": "<span foreground='#d8dee9'>   </span>{:%a %m-%d-%y}",
@@ -50,6 +50,11 @@
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#d8dee9'>  </span>Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "  {specific_used:0.1f}/{specific_total:0.1f} GB",
+    "unit": "GB"
   },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
