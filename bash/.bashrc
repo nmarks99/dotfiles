@@ -12,7 +12,7 @@ PATH="$HOME/.local/bin:$PATH"
 
 # Set editor to neovim
 export EDITOR='nvim'
-export NVIM_THEME="rose-pine"
+export NVIM_THEME="ashen"
 export NVIM_TRANSPARENCY="false"
 
 # Set font colors for directories displayed with ls
@@ -41,3 +41,9 @@ export PATH=${EPICS_BASE}/bin/${EPICS_HOST_ARCH}:${PATH}
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Raspberry Pi Pico SDK
+export PICO_SDK_PATH="${HOME}/.local/pico/pico-sdk"
+
+# xmake
+test -f "$HOME/.xmake/profile" && source "$HOME/.xmake/profile"

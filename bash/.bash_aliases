@@ -7,7 +7,7 @@ alias qtdesigner='/usr/lib/qt6/bin/designer'
 alias diskusage="df -h | grep nvme | head -1"
 
 if [[ $XDG_SESSION_TYPE == "wayland" ]]; then
-    alias clipboard='wl-copy -selection clipboard'
+    alias clipboard='wl-copy'
 else
     alias clipboard='tr -d "\n" | xclip -selection clipboard'
 fi
