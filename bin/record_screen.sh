@@ -4,10 +4,13 @@
 # record_screen.sh
 # Records the entire screen with ffmpeg
 # Saves to ~/screen_cap_DATE.mp4
-# Optionally also creates a GIF
 # ================================
 
-OUTPUT_DIR="$HOME"
+if [ -d "$HOME/Videos" ]; then
+    OUTPUT_DIR="$HOME/Videos"
+else
+    OUTPUT_DIR="$HOME"
+fi
 TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
 VIDEO_FILE="$OUTPUT_DIR/screen_cap_$TIMESTAMP.mp4"
 GIF_FILE="$OUTPUT_DIR/screen_cap_$TIMESTAMP.gif"
