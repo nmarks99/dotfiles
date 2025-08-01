@@ -62,6 +62,6 @@
       "format-icons": {
           "default": ["", "", " "]
       },
-      "on-click": "pavucontrol"
+      "on-click": "kitty --hold sh -c pulsemixer"
   }
 }
