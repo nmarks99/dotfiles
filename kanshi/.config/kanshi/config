@@ -1,0 +1,8 @@
+profile mobile {
+    output eDP-1 enable
+}
+
+profile docked {
+    output eDP-1 disable
+    output DP-2 enable mode 3440x1440@84.96Hz position 0,0
+}
