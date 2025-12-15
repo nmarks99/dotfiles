@@ -17,7 +17,7 @@ PATH="$HOME/.local/bin:$PATH"
 
 # Set editor to neovim
 export EDITOR='nvim'
-export NVIM_THEME="austere"
+export NVIM_THEME="lackluster"
 export NVIM_TRANSPARENCY="false"
 
 # Set font colors for directories displayed with ls
@@ -56,9 +56,16 @@ eval "$(pyenv init -)"
 # Raspberry Pi Pico SDK
 export PICO_SDK_PATH="${HOME}/.local/pico/pico-sdk"
 
-# xmake
-test -f "$HOME/.xmake/profile" && source "$HOME/.xmake/profile"
-# >>> xmake >>>
-test -f "/home/nick/.xmake/profile" && source "/home/nick/.xmake/profile"
-# <<< xmake <<<
-. "$HOME/.cargo/env"
+# fzf
+eval "$(fzf --bash)"
+
+# # xmake
+# test -f "$HOME/.xmake/profile" && source "$HOME/.xmake/profile"
+# # >>> xmake >>>
+# test -f "/home/nick/.xmake/profile" && source "/home/nick/.xmake/profile"
+# # <<< xmake <<<
+# . "$HOME/.cargo/env"
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
