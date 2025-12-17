@@ -10,12 +10,17 @@ alias screen="TERM=xterm-256color screen" # FIX: xterm-kitty doesn't work
 alias vme_console="pio device monitor --raw --eol=CR"
 # alias vme_console="screen /dev/ttyUSB0"
 
-# temporarily using nvim on /local/nmarks since NFS is slow!
-#function nvim() {
-#   export XDG_CONFIG_HOME="/local/nmarks/local-nvim/config"
-#   export XDG_DATA_HOME="/local/nmarks/local-nvim/share"
-#   /local/nmarks/local-nvim/nvim-bin "$@"
-# }
+# Pass terminfo files for kitty through ssh so colors etc. work.
+# if in kitty window
+if [ -n "$KITTY_WINDOW_ID" ]; then
+    # if connected over ssh already, use TERM=xterm-256color
+    if [[ -n "$SSH_CONNECTION" && -n "$SSH_CLIENT" && -n "$SSH_TTY" ]]; then
+	alias ssh="env TERM=xterm-256color ssh"
+    # if local connection use kitten ssh
+    else
+	alias ssh="kitten ssh"
+    fi
+fi
 
 # TODO: make this better...
 if [[ $HOSTNAME == "ymir-ln.xray.aps.anl.gov" ]]; then
@@ -32,7 +37,7 @@ if [ -f /etc/redhat-release ]; then
             # alias ls="lsd"
         # fi
         if which "bat" &> /dev/null; then
-            alias cat="bat --theme=base16"
+            alias cat="bat --theme=1337"
         fi
     fi
 fi
