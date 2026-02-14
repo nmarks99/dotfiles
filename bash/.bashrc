@@ -47,6 +47,7 @@ PATH="/home/nick/.cargo/bin:$PATH"
 export EPICS_BASE=/usr/local/epics/base-7.0.8.1
 export EPICS_HOST_ARCH=$(${EPICS_BASE}/startup/EpicsHostArch)
 export PATH=${EPICS_BASE}/bin/${EPICS_HOST_ARCH}:${PATH}
+export PATH=${HOME}/.local/epics/pvxs/bin/${EPICS_HOST_ARCH}:${PATH}
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"

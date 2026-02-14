@@ -9,7 +9,7 @@
 
 window#waybar {
     background: transparent;
-    background-color: @nord0;
+    background-color: #000000;
     color: @nord5;
     transition-property: background-color;
     transition-duration: 0.1s;

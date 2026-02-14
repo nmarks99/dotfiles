@@ -12,12 +12,8 @@ else
     alias clipboard='tr -d "\n" | xclip -selection clipboard'
 fi
 
-if [[ $XDG_CURRENT_DESKTOP == "Hyprland" ]]; then
-    alias display_normal="hyprctl keyword monitor eDP-1,preferred,auto,1.0,transform,0"
-    alias display_inverted="hyprctl keyword monitor eDP-1,preferred,auto,1.0,transform,2"
-fi
-
 if [[ $TERM == "xterm-kitty" ]]; then
-    alias kitty-ssh="kitty +kitten ssh"
+    # alias kitty-ssh="kitty +kitten ssh"
+    alias ssh="kitten ssh"
     alias icat="kitty +kitten icat"
 fi
