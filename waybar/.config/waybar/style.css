@@ -1,4 +1,4 @@
-@import "nord.css"; 
+@import "nord.css";
 
 * {
     font-family: "JetBrainsMono Nerd Font Bold";
@@ -77,6 +77,11 @@ button:hover {
 }
 
 #network {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
+}
+
+#backlight {
     color: @nord4;
     border-bottom: 2px solid @nord4;
 }

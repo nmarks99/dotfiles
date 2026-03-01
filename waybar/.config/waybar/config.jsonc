@@ -2,11 +2,14 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "cpu", "temperature", "disk", "battery", "clock"],
+  "modules-right": ["network", "backlight", "pulseaudio", "cpu", "temperature", "disk", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#d8dee9'>   </span>{:%a %d %I:%M}",
     "format-alt": "<span foreground='#d8dee9'>   </span>{:%a %m-%d-%y}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "hyprland/window" : {
+      "format" : "{initialTitle}"
   },
   "cpu": {
     "interval": 5,
@@ -51,9 +54,14 @@
     "format-disconnected": "<span size='13000' foreground='#d8dee9'>  </span>Disconnected",
     "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
   },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["","", "", "", "", "",""]
+  },
   "disk": {
     "interval": 30,
-    "format": "  {specific_used:0.1f}/{specific_total:0.1f} GB",
+    "format": "  {specific_used:0.0f}/{specific_total:0.0f} GB",
     "unit": "GB"
   },
   "pulseaudio": {
