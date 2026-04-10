@@ -61,6 +61,7 @@ button:hover {
 #cpu,
 #memory,
 #disk,
+#custom-updates,
 #temperature,
 #backlight,
 #wireplumber,
@@ -102,6 +103,11 @@ button:hover {
 }
 
 #disk {
+    color: @nord4;
+    border-bottom: 2px solid @nord4;
+}
+
+#custom-updates {
     color: @nord4;
     border-bottom: 2px solid @nord4;
 }

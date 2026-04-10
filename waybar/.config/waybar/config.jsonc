@@ -2,7 +2,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "backlight", "pulseaudio", "cpu", "temperature", "disk", "battery", "clock"],
+  "modules-right": ["network", "backlight", "pulseaudio", "cpu", "temperature", "disk", "custom/updates", "battery", "clock"],
   "clock": {
     "format": "<span foreground='#d8dee9'>   </span>{:%a %d %I:%M}",
     "format-alt": "<span foreground='#d8dee9'>   </span>{:%a %m-%d-%y}",
@@ -63,6 +63,16 @@
     "interval": 30,
     "format": "  {specific_used:0.0f}/{specific_total:0.0f} GB",
     "unit": "GB"
+  },
+  "custom/updates": {
+      "format": "{}{icon}",
+      "return-type": "json",
+      "format-icons": {
+          "has-updates": "󰏔",
+          "updated": ""
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --no-zero-output --interval-seconds 5 --network-interval-seconds 300"
   },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
