@@ -54,18 +54,14 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Raspberry Pi Pico SDK
-export PICO_SDK_PATH="${HOME}/.local/pico/pico-sdk"
+# # Raspberry Pi Pico SDK
+# export PICO_SDK_PATH="${HOME}/.local/pico/pico-sdk"
+
+# ESP-IDF
+# source "/home/nick/.espressif/tools/activate_idf_v6.0.sh"
 
 # fzf
 eval "$(fzf --bash)"
-
-# # xmake
-# test -f "$HOME/.xmake/profile" && source "$HOME/.xmake/profile"
-# # >>> xmake >>>
-# test -f "/home/nick/.xmake/profile" && source "/home/nick/.xmake/profile"
-# # <<< xmake <<<
-# . "$HOME/.cargo/env"
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
