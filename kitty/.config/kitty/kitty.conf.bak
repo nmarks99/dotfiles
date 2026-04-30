@@ -9,9 +9,12 @@ font_size 18
 
 # misc
 confirm_os_window_close 0
+# foreground       #ffffff
+# cursor           #ffffff
+# background       #000000
 background_opacity 0.9
 
 # BEGIN_KITTY_THEME
-# Default
+# Gruvbox Material Dark Hard
 include current-theme.conf
 # END_KITTY_THEME

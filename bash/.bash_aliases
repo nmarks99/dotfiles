@@ -15,10 +15,10 @@ alias vme_console="pio device monitor --raw --eol=CR"
 if [ -n "$KITTY_WINDOW_ID" ]; then
     # if connected over ssh already, use TERM=xterm-256color
     if [[ -n "$SSH_CONNECTION" && -n "$SSH_CLIENT" && -n "$SSH_TTY" ]]; then
-	alias ssh="env TERM=xterm-256color ssh"
-    # if local connection use kitten ssh
-    else
-	alias ssh="kitten ssh"
+	    alias ssh="env TERM=xterm-256color ssh"
+    elif [[ -z $ZELLIJ ]]; then
+        # if local connection use kitten ssh
+	    alias ssh="kitten ssh"
     fi
 fi
 
@@ -29,15 +29,15 @@ if [[ $HOSTNAME == "ymir-ln.xray.aps.anl.gov" ]]; then
 else
     alias ls='ls --color=auto'
 fi
+
 if [ -f /etc/redhat-release ]; then
     release_info=$(cat /etc/redhat-release)
     major_version=$(echo $release_info | grep -oE '[0-9]+' | head -n 1)
     if [ "$major_version" -gt 8 ]; then
-        # if which "lsd" &> /dev/null; then
-            # alias ls="lsd"
-        # fi
         if which "bat" &> /dev/null; then
-            alias cat="bat --theme=1337"
+            if [ -z "$NVIM" ]; then
+                alias cat="bat --theme=1337"
+            fi
         fi
     fi
 fi

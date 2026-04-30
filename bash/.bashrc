@@ -32,6 +32,10 @@ if [ -d "$HOME/go/bin" ]; then
     PATH="$HOME/go/bin:$PATH"
 fi
 
+# # Python
+# . "$HOME/.local/bin/env"
+# eval "$(uv generate-shell-completion bash)"
+
 # add directory for local python modules to PATH
 if [ -d "$HOME/.local/lib/local_python_modules" ]; then
     export PYTHONPATH="$PYTHONPATH:$HOME/.local/lib/local_python_modules/"
@@ -42,6 +46,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+
+# EPICS
+PATH="$HOME/.local/epics/pvxs/bin/${EPICS_HOST_ARCH}:$PATH"
 # # set EPICS_HOST_ARCH based on redhat version
 # if [ -f /etc/redhat-release ]; then
     # release_info=$(cat /etc/redhat-release)
@@ -52,18 +59,19 @@ eval "$(pyenv init -)"
     # # echo "EPICS_HOST_ARCH=${EPICS_HOST_ARCH}"
 # fi
 
-# SPDLOG C++ library logging level
-export SPDLOG_LEVEL=debug,mylogger=trace
+# # SPDLOG C++ library logging level
+# export SPDLOG_LEVEL=debug,mylogger=trace
 
 # fzf
 FZF_ALT_C_COMMAND=
 # FZF_CTRL_T_COMMAND=
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# pvtui
-export PATH="/home/beams/NMARKS/devel/pvtui/build/bin":${PATH}
-
+# node
 export PATH="/home/beams0/NMARKS/.nvm/versions/node/v21.4.0/bin":${PATH}
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# opencode
+export PATH=/home/beams/NMARKS/.opencode/bin:$PATH
