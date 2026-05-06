@@ -1,8 +1,3 @@
----
-name: presenterm
-description: Write markdown-based terminal presentations using presenterm -- slide syntax, comment commands, code blocks, layouts, themes, configuration, exports, and speaker notes
----
-
 # Skill: presenterm — Terminal Slideshow Authoring
 
 Write markdown-based terminal presentations using presenterm. This skill covers slide syntax, comment commands, code blocks, layouts, themes, configuration, exports, and speaker notes.
