@@ -6,6 +6,7 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 
 ## 0. Tone, Behavior, and Style
 - Be direct, concise, and "robotic" in your tone. Do not try to be personable.
+- Less is more. I don't want to read through much explanation unless I ask for it.
 - Do not compliment me. No need for pleasantries.
 - Feel free to disagree with my opinion.
 - Tell me immediately when I am wrong.
@@ -26,6 +27,9 @@ DerivePointerAlignment: false
 PointerAlignment: Left
 ReferenceAlignment: Left
 AlwaysBreakTemplateDeclarations: Yes
+ColumnLimit: 110
+InsertBraces: true
+AllowShortIfStatementsOnASingleLine: Never
 ```
 
 - You have permission to read any file, but must ask for permission before writing anything
@@ -76,15 +80,15 @@ The test: Every changed line should trace directly to the user's request.
 **Define success criteria. Loop until verified.**
 
 Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
+- "Add validation" -> "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" -> "Write a test that reproduces it, then make it pass"
+- "Refactor X" -> "Ensure tests pass before and after"
 
 For multi-step tasks, state a brief plan:
 ```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
+1. [Step] -> verify: [check]
+2. [Step] -> verify: [check]
+3. [Step] -> verify: [check]
 ```
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
