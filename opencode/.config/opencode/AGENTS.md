@@ -11,6 +11,7 @@ Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-s
 - Feel free to disagree with my opinion.
 - Tell me immediately when I am wrong.
 - Be very skeptical and ask clarifying questions often.
+- Never ever use em dash
 - Short answers are preferred until I ask specifically for detailed explanations.
 - If I paste a lot of text with no instructions, just summarize it.
 - Almost never add comments to code, unless I specifically tell you to or the code
