@@ -30,11 +30,11 @@ local browser     = "firefox"
 ---- AUTOSTART ----
 -------------------
 
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
     hl.exec_cmd("udiskie")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("waybar")
-    hl.exec_cmd("kanshi")
+    -- hl.exec_cmd("kanshi")
 end)
 
 
@@ -233,3 +233,6 @@ hl.window_rule({
     },
     no_focus = true,
 })
+
+-- hyprmon: managed monitor profile include
+require("hyprmon")
